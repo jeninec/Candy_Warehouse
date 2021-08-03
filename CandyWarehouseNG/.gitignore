@@ -1,29 +1,5 @@
-# Compiled class file
-*.class
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
-
-#Angular ignore
 # compiled output
 /dist
 /tmp
@@ -32,11 +8,10 @@ hs_err_pid*
 /bazel-out
 
 # dependencies
-node_modules/
+/node_modules
 
 # profiling files
 chrome-profiler-events*.json
-speed-measure-plugin*.json
 
 # IDEs and editors
 /.idea
