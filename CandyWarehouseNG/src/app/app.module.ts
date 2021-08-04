@@ -9,6 +9,8 @@ import { ManagerComponent } from './components/manager/manager.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
+import { AboutPageComponent } from './components/about-page/about-page.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { LoginComponent } from './components/login/login.component';
     ManagerComponent,
     InventoryComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    AboutPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
