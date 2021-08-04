@@ -1,0 +1,44 @@
+
+fieldset {
+    background-color: #eeeeee;
+    width: 50%;
+    border: solid black;
+    margin: 5px 5px;
+  }
+  
+  legend {
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+  }
+  
+  a{
+      text-decoration: none;
+      padding: 5px;
+      margin-right: 1em;
+      background-color: black;
+      color: white;
+  }
+  
+  a:hover{
+      color: cyan;
+  }
+  
+  fieldset div{
+      margin: 20px 5px;
+  }
+  
+  h1{
+    margin: 5px 5px;
+  }
+  
+  .title{
+    color : white;
+    margin-bottom: 0.5em;
+  }
+  
+  #navBar{
+      background-color: black;
+      padding: 10px;
+      width:100%;
+  }
