@@ -4,8 +4,6 @@ MVP
 ------
 - As a user I should be able login to my account
 - As a user I should be able to register/create an account
-- As a user I should be able to update some basic information for my account
-	- maybe password, address, and phone number
 - As an employee I should be able to manage warehouse stock
 	- Involves removing and adding candy amounts to warehouse
 - As an employee I should be able to view all orders
@@ -13,16 +11,20 @@ MVP
 - As an admin I should be able to view all users (employees included)
 - As an admin I should be able to delete users (employees included)
 - As a manager I should be able to view all candies from the warehouse
+- As a buyer I should be able to view all candies in the warehouse
+- As a buyer I should be able to add and remove candies from my order list
+- As a buyer I should be able to submit my order list
+
+Goal
+-----
+- As a user I should be able to update some basic information for my account
+	- maybe password, address, and phone number
 - As a manager I should be able to add new candies to the warehouse inventory
 	- Involves new types of candies not just quantity
 - As a manager I should be able to view all completed orders
 - As a manager I should be able to view all currently active orders
 - As a manager I should be able to view all employees in the warehouse
-- As a buyer I should be able to view all candies in the warehouse
-- As a buyer I should be able to add and remove candies from my order list
-- As a buyer I should be able to submit my order list
 - As a buyer I should be able to view the status of my orders
-
 
 Stretch Goals
 --------------
@@ -30,4 +32,5 @@ Stretch Goals
 - In general implementing multiple warehouses
 - As an employee I should be assigned to an order through the customer
 - As a manager update the price of candies
+- As a manager I should be able to promote a non-manager employee to be a manager
 
