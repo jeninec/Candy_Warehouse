@@ -7,6 +7,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { UserComponent } from './components/user/user.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { LoginComponent } from './components/login/login.component';
+import { AboutPageComponent } from './components/about-page/about-page.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 const routes: Routes = [
   {path: 'employee', component: EmployeeComponent},
@@ -14,7 +16,10 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent},
   {path: 'user', component: UserComponent},
   {path: 'inventory', component: InventoryComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'about', component: AboutPageComponent},
+  {path: 'home', component: HomePageComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({
