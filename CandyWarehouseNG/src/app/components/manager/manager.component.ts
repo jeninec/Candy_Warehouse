@@ -14,6 +14,7 @@ export class ManagerComponent implements OnInit {
 
   isEmps: boolean = false;
   isItems: boolean = true;
+  showAddMenu: boolean = false;
   selectOption: string = "Show Employees";
 
   fakeItemsList: Array<any> = [
@@ -39,6 +40,18 @@ export class ManagerComponent implements OnInit {
     } else {
       this.selectOption = "Show Employees";
     }
+
+    if(this.showAddMenu === true){
+      this.showAddMenu = false;
+    }
+  }
+
+  addItem(){
+    this.showAddMenu = ! this.showAddMenu;
+  }
+
+  submitItem(){
+    alert("Submitting item");
   }
 
 }

@@ -1,10 +1,35 @@
 <h1>Manager Page</h1>
 
 <!-- Toggle the display-->
-<button (click)="toggleShow()" type="checkbox" >{{selectOption}}</button>
+<button class="viewButtons" (click)="toggleShow()" type="checkbox" >{{selectOption}}</button>
+<button class="viewButtons" *ngIf="isItems" (click)="addItem()" type="checkbox" >Add Item</button>
+
+<div *ngIf="showAddMenu">
+    <fieldset>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Item Name: </span>
+            <input type="text" class="form-control" placeholder="Item Name">
+            <span class="input-group-text">Category: </span>
+            <input type="text" class="form-control" placeholder="Category">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Price: </span>
+            <input type="number" class="form-control" placeholder="$0.00">
+            <span class="input-group-text">Quantity: </span>
+            <input type="number" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Desciption: </span>
+            <input type="text" class="form-control">
+        </div>
+
+        <button (click)="submitItem">Submit Item</button>
+    </fieldset>
+      
+</div>
 
 <div *ngIf="isItems">
-    
+
     <table class="table table-striped">
         <thead>
             <tr>
