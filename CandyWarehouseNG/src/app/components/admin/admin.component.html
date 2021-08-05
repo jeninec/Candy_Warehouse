@@ -1,5 +1,14 @@
 <h1>Admin Page</h1>
 
+<h2>User List</h2>
+<div id="tableControls">
+    <input type="text" placeholder="Search by Name" [(ngModel)]="nameInput">
+    <button (click)="searchByName()">Search</button>
+
+    <input type="text" placeholder="Search by Email" [(ngModel)]="emailInput">
+    <button (click)="searchByEmail()">Search</button>
+</div>
+
 <table class="table table-striped">
     <thead>
         <tr>

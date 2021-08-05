@@ -13,6 +13,9 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  nameInput: string = "";
+  emailInput: string = "";
+
   fakePeopleList: Array<any> = [
     {"id": 1, "name": "Jack Frank", "email": "jf@gmail.com", "address1": "30 JackFrank St", 
     "address2": "", "city" : "Frankville", "state": "Alabama", "zip": "09823", 
@@ -21,5 +24,13 @@ export class AdminComponent implements OnInit {
     "address2": "", "city" : "Chicago", "state": "Illinois", "zip": "123123", 
     "phone": "232-542-1231", "title": "Employee"}
   ];
+
+  searchByName(){
+    alert(this.nameInput);
+  }
+
+  searchByEmail(){
+    alert(this.emailInput);
+  }
   
 }
