@@ -1,1 +1,12 @@
-<p>manager works!</p>
+<h1>Manager Page</h1>
+
+<!-- Toggle the display-->
+<button (click)="toggleShow()" type="checkbox" >{{selectOption}}</button>
+
+<div *ngIf="isItems">
+    <p>Here be the items</p>
+</div>
+
+<div *ngIf="isEmps">
+    <p>Here be employees</p>
+</div>

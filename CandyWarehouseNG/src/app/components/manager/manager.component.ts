@@ -12,4 +12,18 @@ export class ManagerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isEmps: boolean = false;
+  isItems: boolean = true;
+  selectOption: string = "Show Employees";
+
+  toggleShow() {
+    this.isEmps = ! this.isEmps;
+    this.isItems = ! this.isItems;
+    if(this.selectOption === "Show Employees"){
+      this.selectOption = "Show Items";
+    } else {
+      this.selectOption = "Show Employees";
+    }
+  }
+
 }
