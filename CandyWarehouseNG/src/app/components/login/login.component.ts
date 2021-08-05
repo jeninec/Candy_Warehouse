@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { People } from 'src/app/models/People';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -6,13 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email: string = ""
-  pass: string = ""
-  constructor() { }
+
+  constructor(private login: LoginService) { }
 
   ngOnInit(): void {
   }
-
-
 
 }

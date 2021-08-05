@@ -1,10 +1,14 @@
-<p>login works!</p>
 
 
-<div>
-    <input [(ngModel)]="inputEmail" change="login()" type="text" placeholder="Email">
+<div id="loginInput" class="d-grid gap-3 col-6 mx-auto text-center">
 
-    <input [(ngModel)]="inputPass" change="login()" type="text" placeholder="Password">
+    <input id="inputUname" type="text" class="form-control" placeholder="Username">
+    <br>
+    <input id="inputPass" type="password" class="form-control" placeholder="Password">
+    <br>
+    <button id="login" onclick="login()" class="btn-light btn-lg" style="background-color: #6BBAA7; box-shadow: 0px 2px 2px 0px; width: 200px; margin-left: 20%;">Log in</button>
+    <br>
+    <br>
+    <label id="loginResult" style="color: red"></label>
 
-    <button id="login">Log in</button>
 </div>
