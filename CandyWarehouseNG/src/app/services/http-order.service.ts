@@ -14,15 +14,15 @@ export class HttpOrderService {
   private postHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
   getAllOrders(): Observable<Order[]> {
 
-    return this.http.get<Order[]> ('http://localhost:7000/');
+    return this.http.get<Order[]> ('http://localhost:8080/orders');
   }
 
   addOrder(order : Order) : Observable<Order> {
-    return this.http.post<Order>('http://localhost:',Order,{ headers: this.postHeaders });
+    return this.http.post<Order>('http://localhost:8080/orders',Order,{ headers: this.postHeaders });
   }
-  deletOrder(order:Order) : Observable<Order> { 
+  deleteOrder(order:Order) : Observable<Order> { 
     // may be we shold to add Id
-    return this.http.put<Order>('http://localhost:'+  Order ,Order,{ headers: this.postHeaders });
+    return this.http.put<Order>('http://localhost:/orders'+  Order ,Order,{ headers: this.postHeaders });
   }
 
 }

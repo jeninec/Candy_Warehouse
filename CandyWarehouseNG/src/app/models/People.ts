@@ -1,8 +1,8 @@
 export class People{
 
     id: number;
-    firstName: string;
-    lastName: string;
+    firstname: string;
+    lastname: string;
     email: string;
     password: string;
     address1: string;
@@ -14,13 +14,13 @@ export class People{
     title: string;
 
 
-    constructor(id: number, firstName: string, lastName: string, email: string, password: string,
+    constructor(id: number, firstname: string, lastname: string, email: string, password: string,
         address1: string, address2: string, city: string, state: string, zip: string,
         phone: string, title: string){
 
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.email = email;
         this.password = password;
         this.address1 = address1;

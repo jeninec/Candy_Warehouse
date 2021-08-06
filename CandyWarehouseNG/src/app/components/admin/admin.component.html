@@ -25,9 +25,9 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="userValue" *ngFor="let person of fakePeopleList" routerLink="/editUser/{{person.id}}">
+        <tr class="userValue" *ngFor="let person of userList" routerLink="/editUser/{{person.id}}">
             <td>{{person.id}}</td>
-            <td>{{person.name}}</td>
+            <td>{{person.firstname}} {{person.lastname}}</td>
             <td>{{person.email}}</td>
             <td>{{person.address1}}</td>
             <td>{{person.address2}}</td>
