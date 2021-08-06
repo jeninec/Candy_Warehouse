@@ -9,6 +9,7 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { LoginComponent } from './components/login/login.component';
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 const routes: Routes = [
   {path: 'employee', component: EmployeeComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'about', component: AboutPageComponent},
   {path: 'home', component: HomePageComponent},
+  {path: 'editUser/:userid', component: EditUserComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
