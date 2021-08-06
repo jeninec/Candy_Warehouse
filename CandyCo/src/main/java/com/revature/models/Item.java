@@ -26,13 +26,17 @@ public class Item {
 	private String description;
 	@Column(name="img_src")
 	private String imgSrc;
+	@Column(name="qty_ordered")
+	private int qtyOrdered;
 	
 
 	public Item() {
 		super();
 	}
 
-	public Item(int id, String name, String catagory, double price, int qty, String description, String imgSrc) {
+
+	public Item(int id, String name, String catagory, double price, int qty, String description, String imgSrc,
+			int qtyOrdered) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -41,9 +45,12 @@ public class Item {
 		this.qty = qty;
 		this.description = description;
 		this.imgSrc = imgSrc;
+		this.qtyOrdered = qtyOrdered;
 	}
 
-	public Item(String name, String catagory, double price, int qty, String description, String imgSrc) {
+
+	public Item(String name, String catagory, double price, int qty, String description, String imgSrc,
+			int qtyOrdered) {
 		super();
 		this.name = name;
 		this.catagory = catagory;
@@ -51,71 +58,97 @@ public class Item {
 		this.qty = qty;
 		this.description = description;
 		this.imgSrc = imgSrc;
+		this.qtyOrdered = qtyOrdered;
 	}
+
 
 	public int getId() {
 		return id;
 	}
 
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 
 	public String getName() {
 		return name;
 	}
 
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 
 	public String getCatagory() {
 		return catagory;
 	}
 
+
 	public void setCatagory(String catagory) {
 		this.catagory = catagory;
 	}
+
 
 	public double getPrice() {
 		return price;
 	}
 
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
 
 	public int getQty() {
 		return qty;
 	}
 
+
 	public void setQty(int qty) {
 		this.qty = qty;
 	}
+
 
 	public String getDescription() {
 		return description;
 	}
 
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 
 	public String getImgSrc() {
 		return imgSrc;
 	}
 
+
 	public void setImgSrc(String imgSrc) {
 		this.imgSrc = imgSrc;
 	}
 
+
+	public int getQtyOrdered() {
+		return qtyOrdered;
+	}
+
+
+	public void setQtyOrdered(int qtyOrdered) {
+		this.qtyOrdered = qtyOrdered;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", name=" + name + ", catagory=" + catagory + ", price=" + price + ", qty=" + qty
-				+ ", description=" + description + ", imgSrc=" + imgSrc + "]";
+				+ ", description=" + description + ", imgSrc=" + imgSrc + ", qtyOrdered=" + qtyOrdered + "]";
 	}
-	
-	
+
+
 	
 	
 }
