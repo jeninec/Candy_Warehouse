@@ -1,6 +1,6 @@
 import { People } from './../models/People';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, ObservedValuesFromArray } from 'rxjs';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
 
 @Injectable({
@@ -14,5 +14,9 @@ export class HttpPeopleService {
 
   getAllPeople(): Observable<People[]>{
     return this.http.get<People[]>('http://localhost:8080/people');
+  }
+
+  getPeople(id: string): Observable<People>{
+    return this.http.get<People>('http://localhost:8080/people/' + id);
   }
 }

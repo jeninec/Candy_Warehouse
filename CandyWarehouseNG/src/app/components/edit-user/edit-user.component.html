@@ -1,3 +1,42 @@
 <h1>Edit User Page</h1>
 <a id = "adminLink" routerLink="/admin">Return to Admin</a>
-<p>User ID: {{id}}</p>
+
+<div class="userInformation">
+    <div class="input-group mb-3">
+        <span class="input-group-text">ID: </span>
+        <input type="text" class="form-control" [(ngModel)]="getPeople().id" readonly>
+        <span class="input-group-text">Name: </span>
+        <input type="text" class="form-control" [(ngModel)]="getPeople().firstname + ' ' + getPeople().lastname">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Email: </span>
+        <input type="text" class="form-control" [(ngModel)]="getPeople().email">
+        <span class="input-group-text">Password: </span>
+        <input type="text" class="form-control" [(ngModel)]="getPeople().password">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Address 1: </span>
+        <input type="text" class="form-control" [(ngModel)]="getPeople().address1">
+        <span class="input-group-text">Address 2: </span>
+        <input type="text" class="form-control" [(ngModel)]="getPeople().address2">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">City: </span>
+        <input type="text" class="form-control" [(ngModel)]="getPeople().city">
+        <span class="input-group-text">State: </span>
+        <input type="text" class="form-control" [(ngModel)]="getPeople().state">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Zip: </span>
+        <input type="text" class="form-control" [(ngModel)]="getPeople().zip">
+        <span class="input-group-text">Phone: </span>
+        <input type="text" class="form-control" [(ngModel)]="getPeople().phone">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Title: </span>
+        <input type="text" class="form-control" [(ngModel)]="getPeople().title">
+    </div>
+</div>
+
+<button (click)="updateUser()">Update User</button>
+<button (click)="deleteUser()">Delete User</button>

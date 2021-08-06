@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { People } from 'src/app/models/People';
+import { HttpPeopleService } from 'src/app/services/http-people.service';
+import { PeopleService } from 'src/app/people.service';
+
 
 @Component({
   selector: 'app-edit-user',
@@ -8,12 +12,31 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditUserComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private peopleHttp: HttpPeopleService
+    , private peopleServ: PeopleService) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('userid');
+    let id = this.route.snapshot.paramMap.get('userid');
+    if(id === null){
+      id = "0";
+    }
+    this.peopleHttp.getPeople(id).subscribe(
+      (response) => {
+        this.peopleServ.people = response;
+      }
+    )
   }
 
-  id = this.route.snapshot.paramMap.get('userid');
+  getPeople() {
+    return this.peopleServ.people;
+  }
+
+  updateUser(){
+    alert("Update method");
+  }
+
+  deleteUser(){
+    alert("Delete method");
+  }
 
 }

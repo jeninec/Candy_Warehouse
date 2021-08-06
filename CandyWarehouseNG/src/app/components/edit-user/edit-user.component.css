@@ -9,4 +9,12 @@
     border-bottom: 1px solid #333333;
     border-left: 1px solid #CCCCCC;
     font-size: medium;
+    margin: 1em;
+}
+
+.userInformation{
+    width: 50%;
+    border: 1px solid black;
+    padding: 1em;
+    margin: 1em;
 }
