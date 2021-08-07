@@ -19,4 +19,12 @@ export class HttpPeopleService {
   getPeople(id: string): Observable<People>{
     return this.http.get<People>('http://localhost:8080/people/' + id);
   }
+
+  updatePeople(people: People): Observable<People> {
+    return this.http.put<People>('http://localhost:8080/people/' + people.id, people, { headers: this.postHeaders });
+  }
+
+  deletePeople(id: number): Observable<boolean>{
+    return this.http.delete<boolean>('http://localhost:8080/people/' + id);
+  }
 }

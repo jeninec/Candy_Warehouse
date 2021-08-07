@@ -5,8 +5,10 @@
     <div class="input-group mb-3">
         <span class="input-group-text">ID: </span>
         <input type="text" class="form-control" [(ngModel)]="getPeople().id" readonly>
-        <span class="input-group-text">Name: </span>
-        <input type="text" class="form-control" [(ngModel)]="getPeople().firstname + ' ' + getPeople().lastname">
+        <span class="input-group-text">First Name: </span>
+        <input type="text" class="form-control" [(ngModel)]="getPeople().firstname">
+        <span class="input-group-text">Last Name: </span>
+        <input type="text" class="form-control" [(ngModel)]="getPeople().lastname">
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">Email: </span>
@@ -38,5 +40,5 @@
     </div>
 </div>
 
-<button (click)="updateUser()">Update User</button>
-<button (click)="deleteUser()">Delete User</button>
+<button class="userManipulation" (click)="updateUser()">Update User</button>
+<button class="userManipulation" (click)="deleteUser()">Delete User</button>

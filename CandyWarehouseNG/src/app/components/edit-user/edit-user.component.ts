@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { People } from 'src/app/models/People';
 import { HttpPeopleService } from 'src/app/services/http-people.service';
-import { PeopleService } from 'src/app/people.service';
+import { PeopleService } from 'src/app/services/people.service';
 
 
 @Component({
@@ -32,11 +32,23 @@ export class EditUserComponent implements OnInit {
   }
 
   updateUser(){
-    alert("Update method");
+    console.log(this.peopleServ.people);
+    this.peopleHttp.updatePeople(this.peopleServ.people).subscribe(
+      (response) => {
+        alert("User Successfully Updated");
+        this.router.navigateByUrl("/admin");
+      }
+    );
   }
 
   deleteUser(){
-    alert("Delete method");
+    console.log(this.peopleServ.people);
+    this.peopleHttp.deletePeople(this.peopleServ.people.id).subscribe(
+      (response) => {
+        alert("User Successfully Deleted");
+        this.router.navigateByUrl("/admin");
+      }
+    );
   }
 
 }
