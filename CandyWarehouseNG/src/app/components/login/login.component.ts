@@ -9,9 +9,31 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private login: LoginService) { }
+  constructor(private loginServ: LoginService) { }
 
   ngOnInit(): void {
+  }
+  
+  email: string = '';
+  password: string = '';
+ 
+
+  login() {
+
+    console.log(this.email);
+    this.loginServ.getUser(this.email).subscribe(
+      (response) => {
+         const user = response
+         console.log(user);
+         if(user.email == this.email && user.password == this.password) {
+          console.log("Success! Logging in...")
+         }else {
+           console.log("Incorrect credentials")
+         }
+      }
+
+    )
+
   }
 
 }
