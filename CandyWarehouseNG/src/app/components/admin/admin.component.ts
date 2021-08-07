@@ -1,3 +1,4 @@
+import { HttpPeopleService } from './../../services/http-people.service';
 import { People } from './../../models/People';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private peopleHttp: HttpPeopleService) { }
 
   ngOnInit(): void {
+    this.displayAllUsers();
   }
+
+  userList: People[] = [];
+  nameInput: string = "";
+  emailInput: string = "";
 
   fakePeopleList: Array<any> = [
     {"id": 1, "name": "Jack Frank", "email": "jf@gmail.com", "address1": "30 JackFrank St", 
@@ -21,5 +27,22 @@ export class AdminComponent implements OnInit {
     "address2": "", "city" : "Chicago", "state": "Illinois", "zip": "123123", 
     "phone": "232-542-1231", "title": "Employee"}
   ];
+
+  displayAllUsers() {
+    this.peopleHttp.getAllPeople().subscribe(
+      (response) => {
+        console.log(response);
+        this.userList = response;
+      }
+    );
+  }
+
+  searchByName(){
+    alert(this.nameInput);
+  }
+
+  searchByEmail(){
+    alert(this.emailInput);
+  }
   
 }

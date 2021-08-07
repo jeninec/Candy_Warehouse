@@ -1,3 +1,5 @@
+import { Item } from "./Item";
+
 export class Order{
 
 	id: number;
@@ -6,9 +8,11 @@ export class Order{
 	dateOrdered: string;
 	shippingType: string;
 	shipped: boolean;
+    itemId: Item[];
+
 
     constructor(id: number,	qtyOrdered: number, totalPrice: number, dateOrdered: string, 
-        shippingType: string, shipped: boolean){
+        shippingType: string, shipped: boolean, itemId: Item[]){
         
         this.id = id;
         this.qtyOrdered = qtyOrdered;
@@ -16,6 +20,7 @@ export class Order{
         this.dateOrdered = dateOrdered;
         this.shippingType = shippingType;
         this.shipped = shipped;
+        this.itemId = itemId;
         
     }
 
