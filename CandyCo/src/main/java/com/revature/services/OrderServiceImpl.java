@@ -26,7 +26,7 @@ public class OrderServiceImpl implements OrderService{
 		try {
 			return or.findById(id).get();
 		} catch (Exception e) {
-			return new Order();
+			return null;
 		}
 		
 	}
