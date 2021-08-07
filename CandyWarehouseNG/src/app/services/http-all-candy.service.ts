@@ -11,7 +11,13 @@ export class HttpAllCandyService {
 
   constructor(private http : HttpClient) { }
 
+  private postHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+
   getAllCandy() :Observable<Item[]>{
     return this.http.get<Item[]>('http://localhost:8080/items');
+  }
+
+  addCandy(item: Item): Observable<Item>{
+    return this.http.post<Item>('http://localhost:8080/items', item, { headers: this.postHeaders });
   }
 }
