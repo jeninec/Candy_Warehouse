@@ -16,5 +16,5 @@ public interface ItemService {
 	
 	public boolean deleteItem(int id);
 
-	public List<Item> getItem(String name);
+	public Item getItem(String name);
 }

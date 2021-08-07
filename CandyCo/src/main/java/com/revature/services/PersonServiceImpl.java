@@ -24,7 +24,7 @@ public class PersonServiceImpl implements PersonService {
 		try {
 			return pr.findById(id).get();
 		} catch (Exception e) {
-			return new Person();
+			return null;
 		}
 	}
 

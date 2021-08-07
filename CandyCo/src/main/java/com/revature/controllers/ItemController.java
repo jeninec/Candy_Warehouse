@@ -37,7 +37,7 @@ public class ItemController {
 	
 	@CrossOrigin
 	@GetMapping("items/search")
-	public List<Item> getItemByName(@RequestParam("name") String name){
+	public Item getItemByName(@RequestParam("name") String name){
 		return is.getItem(name);
 	}
 	
