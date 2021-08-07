@@ -1,1 +1,91 @@
-<p>manager works!</p>
+<h1>Manager Page</h1>
+
+<!-- Toggle the display-->
+<button class="viewButtons" (click)="toggleShow()" type="checkbox" >{{selectOption}}</button>
+<button class="viewButtons" *ngIf="isItems" (click)="addItem()" type="checkbox" >Add Item</button>
+
+<div *ngIf="showAddMenu">
+    <fieldset>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Item Name: </span>
+            <input type="text" class="form-control" placeholder="Item Name">
+            <span class="input-group-text">Category: </span>
+            <input type="text" class="form-control" placeholder="Category">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Price: </span>
+            <input type="number" class="form-control" placeholder="$0.00">
+            <span class="input-group-text">Quantity: </span>
+            <input type="number" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Desciption: </span>
+            <textarea type="text" class="form-control" rows=3></textarea>
+        </div>
+
+        <button (click)="submitItem">Submit Item</button>
+    </fieldset>
+      
+</div>
+
+<div *ngIf="isItems">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Item ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="userValue" *ngFor="let item of fakeItemsList">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.catagory}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.qty}}</td>
+                <td>{{item.description}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div *ngIf="isEmps">
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">User ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address1</th>
+                <th scope="col">Address2</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Zip</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="userValue" *ngFor="let person of fakeEmployeeList">
+                <td>{{person.id}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.email}}</td>
+                <td>{{person.address1}}</td>
+                <td>{{person.address2}}</td>
+                <td>{{person.city}}</td>
+                <td>{{person.state}}</td>
+                <td>{{person.zip}}</td>
+                <td>{{person.phone}}</td>
+                <td>{{person.title}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

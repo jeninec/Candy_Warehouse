@@ -1,6 +1,6 @@
 package com.revature.services;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class ItemServiceImpl implements ItemService {
 		try {
 			return ir.findById(id).get();
 		} catch (Exception e) {
-			return new Item();
+			return null;
 		}
 		
 	}
@@ -53,11 +53,11 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
-	public List<Item> getItem(String name) {
+	public Item getItem(String name) {
 		try {
 			return ir.findByName(name);
 		} catch (Exception e) {
-			return new ArrayList<Item>();
+			return new Item();
 		}
 	}
 

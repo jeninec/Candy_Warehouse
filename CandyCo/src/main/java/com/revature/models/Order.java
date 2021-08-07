@@ -18,8 +18,6 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name="qty_ordered")
-	private int qtyOrdered;
 	@Column(name="total_price")
 	private double totalPrice;
 	@Column(name="date_ordered")
@@ -37,23 +35,24 @@ public class Order {
 		super();
 	}
 
-	public Order(int id, int qtyOrdered, double totalPrice, String dateOrdered, String shippingType, boolean shipped) {
+	public Order(int id, double totalPrice, String dateOrdered, String shippingType, boolean shipped,
+			List<Item> itemId) {
 		super();
 		this.id = id;
-		this.qtyOrdered = qtyOrdered;
 		this.totalPrice = totalPrice;
 		this.dateOrdered = dateOrdered;
 		this.shippingType = shippingType;
 		this.shipped = shipped;
+		this.itemId = itemId;
 	}
 
-	public Order(int qtyOrdered, double totalPrice, String dateOrdered, String shippingType, boolean shipped) {
+	public Order(double totalPrice, String dateOrdered, String shippingType, boolean shipped, List<Item> itemId) {
 		super();
-		this.qtyOrdered = qtyOrdered;
 		this.totalPrice = totalPrice;
 		this.dateOrdered = dateOrdered;
 		this.shippingType = shippingType;
 		this.shipped = shipped;
+		this.itemId = itemId;
 	}
 
 	public int getId() {
@@ -62,14 +61,6 @@ public class Order {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getQtyOrdered() {
-		return qtyOrdered;
-	}
-
-	public void setQtyOrdered(int qtyOrdered) {
-		this.qtyOrdered = qtyOrdered;
 	}
 
 	public double getTotalPrice() {
@@ -104,13 +95,21 @@ public class Order {
 		this.shipped = shipped;
 	}
 
+	public List<Item> getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(List<Item> itemId) {
+		this.itemId = itemId;
+	}
+
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", qtyOrdered=" + qtyOrdered + ", totalPrice=" + totalPrice + ", dateOrdered="
-				+ dateOrdered + ", shippingType=" + shippingType + ", shipped=" + shipped + "]";
+		return "Order [id=" + id + ", totalPrice=" + totalPrice + ", dateOrdered=" + dateOrdered + ", shippingType="
+				+ shippingType + ", shipped=" + shipped + ", itemId=" + itemId + "]";
 	}
 
 
-	
-	
+
+
 }

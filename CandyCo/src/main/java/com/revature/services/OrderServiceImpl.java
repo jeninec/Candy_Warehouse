@@ -1,10 +1,12 @@
 package com.revature.services;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.revature.models.Item;
 import com.revature.models.Order;
 import com.revature.repositories.OrderRepo;
 
@@ -24,7 +26,7 @@ public class OrderServiceImpl implements OrderService{
 		try {
 			return or.findById(id).get();
 		} catch (Exception e) {
-			return new Order();
+			return null;
 		}
 		
 	}
@@ -36,6 +38,28 @@ public class OrderServiceImpl implements OrderService{
 
 	@Override
 	public Order updateOrder(Order change) {
+		
+		List<Item> pro = change.getItemId();
+		
+		double total = 0;
+		
+		if(pro != null) {
+		       for (int i = 0; i < pro.size(); i++) {
+		            
+		    	    Item item = pro.get(i);
+		            
+		    	    int qty = item.getQtyOrdered();
+		            
+		            double price = item.getPrice();
+		            
+		            price *= qty;
+		            
+		            total += price;
+		        }
+		}
+		
+		change.setTotalPrice(total);
+		
 		return or.save(change);
 	}
 
