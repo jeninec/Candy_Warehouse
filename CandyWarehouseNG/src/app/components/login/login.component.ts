@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { People } from 'src/app/models/People';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -27,6 +26,29 @@ export class LoginComponent implements OnInit {
          console.log(user);
          if(user.email == this.email && user.password == this.password) {
           console.log("Success! Logging in...")
+
+          switch(user.title) {
+
+            case "employee":
+              window.location.href = "./employee.component.html";
+              break;
+            
+            case "manager":
+              window.location.href = "CandyWarehouseNG/src/app/components/manager/manager.component.html";
+              break;
+            
+            case "Buyer":
+              window.location.href = "./...html";
+              break;
+            
+            case "Admin":
+              window.location.href = "./admin.component.html";
+              break;
+            
+            default:
+              window.location.href = "./home-page.component.html";
+          }
+
          }else {
            console.log("Incorrect credentials")
          }
