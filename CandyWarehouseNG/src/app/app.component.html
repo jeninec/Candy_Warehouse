@@ -8,13 +8,13 @@
         <a id = "userLink" routerLink="user">User</a>
     </span>
     <span>
-        <a id = "employeeLink" routerLink="employee">Employee</a>
+        <a *ngIf="isEmployee" id = "employeeLink" routerLink="employee">Employee</a>
     </span>
     <span>
-        <a id = "managerLink" routerLink="manager">Manager</a>
+        <a *ngIf="isManager" id = "managerLink" routerLink="manager">Manager</a>
     </span>
     <span>
-        <a id = "adminLink" routerLink="admin">Admin</a>
+        <a *ngIf="isAdmin" id = "adminLink" routerLink="admin">Admin</a>
     </span>
     <span>
         <a id = "inventoryLink" routerLink="inventory">Inventory</a>

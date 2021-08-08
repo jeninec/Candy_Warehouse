@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   
   email: string = '';
   password: string = '';
+  responseMessage: string = '';
  
 
   login() {
@@ -26,14 +27,25 @@ export class LoginComponent implements OnInit {
          const user = response
          console.log(user);
          if(user.email == this.email && user.password == this.password) {
-          console.log("Success! Logging in...")
+          console.log("Success! Logging in...");
+          this.responseMessage = "Success! Logging in...";
+          localStorage.setItem("title", user.title);
+          location.reload();
          }else {
-           console.log("Incorrect credentials")
+           console.log("Incorrect credentials");
+           this.responseMessage = "Incorrect credentials";
+           
          }
       }
 
     )
 
+  }
+
+  logout(){
+    localStorage.removeItem("title");
+    this.responseMessage = "Logging out";
+    location.reload();
   }
 
 }
