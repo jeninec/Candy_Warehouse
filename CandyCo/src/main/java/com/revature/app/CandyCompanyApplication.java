@@ -11,8 +11,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.revature.models.Item;
+import com.revature.models.Order;
 import com.revature.models.Person;
 import com.revature.repositories.ItemRepo;
+import com.revature.repositories.OrderRepo;
 import com.revature.repositories.PersonRepo;
 
 @SpringBootApplication
@@ -24,7 +26,11 @@ public class CandyCompanyApplication {
 	@Autowired
 	private PersonRepo pr;
 	
-	@Autowired ItemRepo ir;
+	@Autowired
+	private ItemRepo ir;
+	
+	@Autowired
+	private OrderRepo or;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CandyCompanyApplication.class, args);
@@ -56,6 +62,9 @@ public class CandyCompanyApplication {
 			ir.save(new Item("chupa chups", "lollipops", 0.85, 10, "hard fruity lollipop", "../../../assets/images/chupa_chups.jpeg", 0));
 			ir.save(new Item("blow pops", "lollipops", 0.95, 15, "delicious fruit flavored hard candy shell with a soft bubble gum center", "../../../assets/images/blow_pops.jpeg", 0));
 			ir.save(new Item("twizzler", "licorice", 1.65, 15, "twisted strawberry licorice", "../../../assets/images/twizzlers.jpeg", 0));
+			
+			or.save(new Order(10.00, "01/21/21", "FEDEX", false, null));
+			
 		};
 	}
 }

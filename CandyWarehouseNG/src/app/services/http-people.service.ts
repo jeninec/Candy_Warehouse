@@ -20,6 +20,10 @@ export class HttpPeopleService {
     return this.http.get<People>('http://localhost:8080/people/' + id);
   }
 
+  getAllEmployees(): Observable<People[]>{
+    return this.http.get<People[]>('http://localhost:8080/people/search-title?title=employee');
+  }
+
   updatePeople(people: People): Observable<People> {
     return this.http.put<People>('http://localhost:8080/people/' + people.id, people, { headers: this.postHeaders });
   }
@@ -27,4 +31,5 @@ export class HttpPeopleService {
   deletePeople(id: number): Observable<boolean>{
     return this.http.delete<boolean>('http://localhost:8080/people/' + id);
   }
+
 }

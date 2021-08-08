@@ -16,15 +16,19 @@ export class EditUserComponent implements OnInit {
     , private peopleServ: PeopleService) { }
 
   ngOnInit(): void {
-    let id = this.route.snapshot.paramMap.get('userid');
-    if(id === null){
-      id = "0";
-    }
-    this.peopleHttp.getPeople(id).subscribe(
-      (response) => {
-        this.peopleServ.people = response;
+    if(localStorage.getItem("title") == "admin"){
+      let id = this.route.snapshot.paramMap.get('userid');
+      if(id === null){
+        id = "0";
       }
-    )
+      this.peopleHttp.getPeople(id).subscribe(
+        (response) => {
+          this.peopleServ.people = response;
+        }
+      )
+    } else {
+      this.router.navigateByUrl("/home");
+    }
   }
 
   getPeople() {

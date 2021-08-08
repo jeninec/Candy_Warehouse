@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   
   email: string = '';
   password: string = '';
+  responseMessage: string = '';
  
 
   login() {
@@ -25,37 +26,25 @@ export class LoginComponent implements OnInit {
          const user = response
          console.log(user);
          if(user.email == this.email && user.password == this.password) {
-          console.log("Success! Logging in...")
-
-          switch(user.title) {
-
-            case "employee":
-              window.location.href = "./employee.component.html";
-              break;
-            
-            case "manager":
-              window.location.href = "CandyWarehouseNG/src/app/components/manager/manager.component.html";
-              break;
-            
-            case "Buyer":
-              window.location.href = "./...html";
-              break;
-            
-            case "Admin":
-              window.location.href = "./admin.component.html";
-              break;
-            
-            default:
-              window.location.href = "./home-page.component.html";
-          }
-
+          console.log("Success! Logging in...");
+          this.responseMessage = "Success! Logging in...";
+          localStorage.setItem("title", user.title);
+          location.reload();
          }else {
-           console.log("Incorrect credentials")
+           console.log("Incorrect credentials");
+           this.responseMessage = "Incorrect credentials";
+           
          }
       }
 
     )
 
+  }
+
+  logout(){
+    localStorage.removeItem("title");
+    this.responseMessage = "Logging out";
+    location.reload();
   }
 
 }
