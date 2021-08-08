@@ -5,6 +5,7 @@ import { HttpPeopleService } from 'src/app/services/http-people.service';
 import { Item } from 'src/app/models/Item';
 import { Order } from 'src/app/models/Order';
 import { People } from 'src/app/models/People';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manager',
@@ -13,10 +14,14 @@ import { People } from 'src/app/models/People';
 })
 export class ManagerComponent implements OnInit {
 
-  constructor(private peopleHttp: HttpPeopleService ,private itemHttp: HttpAllCandyService, private orderHttp: HttpOrderService) { }
+  constructor(private router: Router, private peopleHttp: HttpPeopleService ,private itemHttp: HttpAllCandyService, private orderHttp: HttpOrderService) { }
 
   ngOnInit(): void {
-    this.displayItems();
+    if(localStorage.getItem("title") == "admin" || localStorage.getItem("title") == "manager"){
+      this.displayItems();
+    } else{
+      this.router.navigateByUrl("/home");
+    }
   }
 
   showEmps: boolean = false;

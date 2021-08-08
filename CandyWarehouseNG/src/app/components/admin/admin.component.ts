@@ -1,6 +1,7 @@
 import { HttpPeopleService } from './../../services/http-people.service';
 import { People } from './../../models/People';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -9,10 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private peopleHttp: HttpPeopleService) { }
+  constructor(private router: Router, private peopleHttp: HttpPeopleService) { }
 
   ngOnInit(): void {
-    this.displayAllUsers();
+    if(localStorage.getItem("title") == "admin"){
+      this.displayAllUsers();
+    } else{
+      this.router.navigateByUrl("/home");
+    }
   }
 
   userList: People[] = [];
