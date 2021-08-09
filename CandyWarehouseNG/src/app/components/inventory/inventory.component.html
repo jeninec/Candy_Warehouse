@@ -1,1 +1,52 @@
-<p>inventory works!</p>
+<h1 style="text-align: center; margin-top: 15px;">Order now</h1>
+<hr>
+
+<div class="container">
+    <div class="row row-cols-2">
+        <div class="col">
+
+            <div id="inventory" class="table table-info table-bordered">
+                <h2 style="padding: 10px;">Warehouse inventory:</h2>
+                <table style="width: 100%;">
+                    <tr>
+                        <th>ID</th>
+                        <th>Category</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                    </tr>
+                    <tr *ngFor="let item of itemList">
+                        <td>{{item.id}}</td>
+                        <td>{{item.catagory}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.qty}}</td> 
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <div class="col">
+
+            <div id="cart" class="table table-danger table-bordered">
+                <h2 style="padding: 10px;">Shopping cart:</h2>
+                <table style="width: 100%;">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Qty ordered</th>
+                        <th>Total price</th>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
