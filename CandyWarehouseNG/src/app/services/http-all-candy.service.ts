@@ -20,4 +20,8 @@ export class HttpAllCandyService {
   addCandy(item: Item): Observable<Item>{
     return this.http.post<Item>('http://localhost:8080/items', item, { headers: this.postHeaders });
   }
+
+  getCat(param: string): Observable<Item[]> {
+    return this.http.get<Item[]>('http://localhost:8080/items/search-cat/?catagory=' + param, {responseType: "json"} );
+  }
 }

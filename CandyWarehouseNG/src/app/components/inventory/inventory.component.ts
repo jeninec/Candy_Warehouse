@@ -17,6 +17,28 @@ export class InventoryComponent implements OnInit {
 
   
   itemList: Item[] = [];
+  itemList2: Item[] = [];
+
+  display = false;
+  display2 = true;
+  display3 = false;
+  
+  onPress(cat: any) {
+    this.display = true;
+    this.display2 = false;
+    console.log(cat);
+    this.allCandy.getCat(cat).subscribe(
+      (response) => {
+        console.log(response);
+        this.itemList2 = response;
+      }
+    );
+    
+  }
+  onPress2() {
+    this.display = false;
+    this.display2 = true;
+  }
 
   getAllCandy() {
 
