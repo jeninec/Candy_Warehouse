@@ -20,6 +20,10 @@ export class HttpPeopleService {
     return this.http.get<People>('http://localhost:8080/people/' + id);
   }
 
+  getPersonByEmail(email: string): Observable<People>{
+    return this.http.get<People>('http://localhost:8080/people/search-email?email=' + email);
+  }
+
   getAllEmployees(): Observable<People[]>{
     return this.http.get<People[]>('http://localhost:8080/people/search-title?title=employee');
   }
