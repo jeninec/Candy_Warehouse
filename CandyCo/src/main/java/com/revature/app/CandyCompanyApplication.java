@@ -1,5 +1,8 @@
 package com.revature.app;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +19,7 @@ import com.revature.models.Person;
 import com.revature.repositories.ItemRepo;
 import com.revature.repositories.OrderRepo;
 import com.revature.repositories.PersonRepo;
+import com.revature.services.ItemService;
 
 @SpringBootApplication
 @ComponentScan("com.revature")
@@ -31,6 +35,9 @@ public class CandyCompanyApplication {
 	
 	@Autowired
 	private OrderRepo or;
+	
+	@Autowired
+	private ItemService is;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CandyCompanyApplication.class, args);
@@ -63,7 +70,12 @@ public class CandyCompanyApplication {
 			ir.save(new Item("blow pops", "lollipops", 0.95, 15, "delicious fruit flavored hard candy shell with a soft bubble gum center", "../../../assets/images/blow_pops.jpeg", 0));
 			ir.save(new Item("twizzler", "licorice", 1.65, 15, "twisted strawberry licorice", "../../../assets/images/twizzlers.jpeg", 0));
 			
-			or.save(new Order(10.00, "01/21/21", "FEDEX", false, null));
+			
+			List<Item> ord = new ArrayList<Item>();
+			ord.add(is.getItem(1));
+			ord.add(is.getItem(2));
+			or.save(new Order(10.00, "01/21/21", "FEDEX", false, ord));
+			System.out.println(ord);
 			
 		};
 	}

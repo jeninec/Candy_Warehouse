@@ -60,5 +60,14 @@ public class ItemServiceImpl implements ItemService {
 			return new Item();
 		}
 	}
+	
+	@Override
+	public List<Item> getItemByCatagory(String catagory) {
+		try {
+			return ir.findByCatagory(catagory);
+		} catch (Exception e) {
+			return null;
+		}
+	}
 
 }
