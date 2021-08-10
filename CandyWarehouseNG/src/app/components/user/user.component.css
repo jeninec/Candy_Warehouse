@@ -1,0 +1,16 @@
+.viewButtons{
+    margin: 1em;
+}
+
+fieldset {
+    width: 50%;
+    border: solid black;
+    margin: 5px 5px;
+    padding: 1em;
+}
+
+.card {
+    width: 95%;
+    margin-left: 1em;
+}
+
