@@ -26,35 +26,27 @@ export class UserComponent implements OnInit {
   showInfo: boolean = true;
   editInfo: boolean = false;
 
-  //uid: string = localStorage.getItem("id").toString();
   user: People = new People(0, "", "", "", "", "", "", "" , "", "", "", "", []);
 
   displayInfo() {
     this.showInfo = true;
     this.editInfo = false;
 
-  
+    var email = localStorage.getItem("email");
+     
 
-    var uid = this.route.snapshot.paramMap.get('id');
-    var til = this.route.snapshot.paramMap.get('title');
-    var email = this.route.snapshot.paramMap.get('email');
-    console.log(uid);
-    console.log(til);
-    console.log(email);
-    
-      if(uid == null){
-        uid = "4";
-      }
-
-    this.peopleHttp.getPeople(uid).subscribe(
+    if (email != null){
+      this.peopleHttp.getPersonByEmail(email.toString()).subscribe(
     
       (response) => {
         console.log(response);
         this.peopleServ.people = response;
         this.user = response;
       }
-    )
 
+      )
+    }
+    
   }
 
   changeInfo() {
@@ -68,8 +60,9 @@ export class UserComponent implements OnInit {
 
     this.peopleHttp.updatePeople(this.peopleServ.people).subscribe(
       (response) => {
-        alert("Movie Successfully Updated");
-        this.router.navigateByUrl("/movies");
+        alert("User Successfully Updated");
+        this.showInfo = true;
+        this.editInfo = false;
       }
     );
   }
