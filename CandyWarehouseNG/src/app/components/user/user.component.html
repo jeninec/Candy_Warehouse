@@ -1,1 +1,60 @@
-<p>user works!</p>
+<h1>User Page</h1>
+
+<!-- Toggle the display-->
+<button class="viewButtons" (click)="displayInfo()" type="checkbox" >Show Info</button>
+<button class="viewButtons" (click)="changeInfo()" type="checkbox" >Edit Info</button>
+
+
+<div *ngIf="showInfo">
+    <div class="card">
+        <h2>Name: {{user.firstname}} {{user.lastname}}</h2>
+        <br>
+        <h4>Role: {{user.title}}</h4>
+        <br>
+        <p>Address: {{user.address1}},  {{user.city}}, {{user.state}} {{user.zip}}</p>
+        <br>
+        <p>Email: {{user.email}}</p>
+        <br>
+        <p>Phone Number: {{user.phone}}</p>
+        <br>
+    </div>
+</div>
+
+<div *ngIf="editInfo">
+    <div class="card">
+        <fieldset>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">First Name: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.firstname">
+                <span class="input-group-text">Last Name: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.lastname">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Email: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.email">
+                <span class="input-group-text">Password: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.password">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Address1: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.address1">
+                <span class="input-group-text">Address2: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.address2">
+            </div>
+            <div class="input-group mb-3">    
+                <span class="input-group-text" id="basic-addon1">City: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.city">
+                <span class="input-group-text">State: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.state">
+                <span class="input-group-text">Zip: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.zip">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Phone: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.phone">
+            </div>
+    
+            <button (click)="updateEmp()">Submit Changes</button>
+        </fieldset>
+    </div>
+</div>
