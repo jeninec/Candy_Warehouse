@@ -15,10 +15,9 @@
     <a (click)= "onPress2()">  back to categories</a>
     <hr>
     <div class="grid-container">
-        <div *ngFor="let item2 of itemList2" class="grid"><h2>{{item2.name}}</h2><img src={{item2.imgSrc}} class="im"></div>
+        <div *ngFor="let item2 of itemList2" class="grid"><h2>{{item2.name}}</h2><img src={{item2.imgSrc}} class="im" ></div>
     </div>
-
-
+    <button (click)="startNewOrder()">Add To Cart</button>
 </div>  
 
 
