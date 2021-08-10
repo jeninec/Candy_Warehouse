@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("title", user.title);
           localStorage.setItem("email", user.email);
           location.reload();
-         }else {
+         }else {  
            console.log("Incorrect credentials");
            this.responseMessage = "Incorrect credentials";
            
