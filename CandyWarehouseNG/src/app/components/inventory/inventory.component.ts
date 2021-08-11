@@ -20,6 +20,7 @@ export class InventoryComponent implements OnInit {
   itemList2: Item[] = [];
   orderList: Item[] =[];
   itemTotals: number[] = [];
+  
 
   value: number[] = [];
   total = 0;
@@ -32,11 +33,17 @@ export class InventoryComponent implements OnInit {
   onPress(cat: any) {
     this.display = true;
     this.display2 = false;
-    console.log(cat);
-    this.orderList = JSON.parse(localStorage.getItem('cart') || '[]');
+    console.log(this.orderList);
+
+    try {
+      this.orderList = JSON.parse(localStorage.getItem('cart') || '[]');
+} catch( e) {
+    // conversion fails
+   console.error( e ) 
+} 
+    console.log(this.orderList);
     this.allCandy.getCat(cat).subscribe(
       (response) => {
-        console.log(response);
         this.itemList2 = response;
         for (let index = 0; index < this.itemList2.length; index++) {
           this.value[index] = 0;
@@ -57,9 +64,9 @@ export class InventoryComponent implements OnInit {
       (response) => {
         response.qtyOrdered = this.value[num];
         this.orderList.push(response);
-        let ol = JSON.stringify({ this: this.orderList })
-        localStorage.setItem('cart', ol);
         console.log(this.orderList);
+        let ol = JSON.stringify(this.orderList);
+        localStorage.setItem('cart', ol);
         this.show[num] = trig;
         window.setTimeout(()=>{
           this.show[num] = false;
