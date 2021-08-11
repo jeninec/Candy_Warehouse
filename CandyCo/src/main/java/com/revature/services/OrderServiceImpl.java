@@ -38,28 +38,6 @@ public class OrderServiceImpl implements OrderService{
 
 	@Override
 	public Order updateOrder(Order change) {
-		
-		List<Item> pro = change.getItemId();
-		
-		double total = 0;
-		
-		if(pro != null) {
-		       for (int i = 0; i < pro.size(); i++) {
-		            
-		    	    Item item = pro.get(i);
-		            
-		    	    int qty = item.getQtyOrdered();
-		            
-		            double price = item.getPrice();
-		            
-		            price *= qty;
-		            
-		            total += price;
-		        }
-		}
-		
-		change.setTotalPrice(total);
-		
 		return or.save(change);
 	}
 

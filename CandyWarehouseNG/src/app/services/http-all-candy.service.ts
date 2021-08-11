@@ -24,4 +24,8 @@ export class HttpAllCandyService {
   getCat(param: string): Observable<Item[]> {
     return this.http.get<Item[]>('http://localhost:8080/items/search-cat/?catagory=' + param, {responseType: "json"} );
   }
+
+  getCandyByName(param: string): Observable<Item> {
+    return this.http.get<Item>('http://localhost:8080/items/search/?name=' + param, {responseType: "json"} );
+  }
 }
