@@ -21,7 +21,8 @@ export class AdminComponent implements OnInit {
   }
 
   userList: People[] = [];
-  nameInput: string = "";
+  fnameInput: string = "";
+  lnameInput: string = "";
   emailInput: string = "";
 
   fakePeopleList: Array<any> = [
@@ -42,12 +43,32 @@ export class AdminComponent implements OnInit {
     );
   }
 
-  searchByName(){
-    alert(this.nameInput);
+  searchByName(){    
+    if(this.fnameInput == ""){
+      this.displayAllUsers();
+    } else {
+      this.peopleHttp.getPersonByName(this.fnameInput, this.lnameInput).subscribe(
+        (response) => {
+          console.log(response);
+          this.userList = [];
+          this.userList.push(response);
+        }
+      );
+    }
   }
 
   searchByEmail(){
-    alert(this.emailInput);
+    if(this.emailInput == ""){
+      this.displayAllUsers();
+    } else {
+      this.peopleHttp.getPersonByEmail(this.emailInput).subscribe(
+        (response) => {
+          console.log(response);
+          this.userList = [];
+          this.userList.push(response);
+        }
+      );
+    }
   }
   
 }

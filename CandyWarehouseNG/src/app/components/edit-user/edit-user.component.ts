@@ -39,7 +39,7 @@ export class EditUserComponent implements OnInit {
     console.log(this.peopleServ.people);
     this.peopleHttp.updatePeople(this.peopleServ.people).subscribe(
       (response) => {
-        alert("User Successfully Updated");
+        console.log("User Successfully Updated");
         this.router.navigateByUrl("/admin");
       }
     );
@@ -49,7 +49,7 @@ export class EditUserComponent implements OnInit {
     console.log(this.peopleServ.people);
     this.peopleHttp.deletePeople(this.peopleServ.people.id).subscribe(
       (response) => {
-        alert("User Successfully Deleted");
+        console.log("User Successfully Deleted");
         this.router.navigateByUrl("/admin");
       }
     );
