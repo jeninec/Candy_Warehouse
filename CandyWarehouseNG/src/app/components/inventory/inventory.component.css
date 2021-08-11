@@ -72,3 +72,14 @@ text-decoration: underline;
 text-decoration: none;
 color: black;
 }
+
+#cart2{
+  width: 40px;
+}
+
+#checkout2{
+  position: relative;
+  display: inline;
+  float: right;
+  padding-right: 20px; 
+}

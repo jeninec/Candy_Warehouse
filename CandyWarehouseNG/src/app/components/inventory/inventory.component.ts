@@ -80,7 +80,11 @@ export class InventoryComponent implements OnInit {
     this.display3 = true;
   }
 
-
+  formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+  
   getAllCandy() {
 
     this.allCandy.getAllCandy().subscribe(
