@@ -32,4 +32,12 @@ this.httpOrders.getAllOrders().subscribe((Response) => {
   console.log(this.OrdersList);
 }
 
+updateOrder(orderU:any){
+  orderU.shipped = true;
+  this.httpOrders.updateOrder(orderU).subscribe(data => {
+    console.log(data);
+  });
+
+}
+
 }
