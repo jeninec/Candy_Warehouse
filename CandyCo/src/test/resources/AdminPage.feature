@@ -1,4 +1,3 @@
-@tag
 Feature: Test the Admin Page
 
 	Scenario: The User goes to the admin page
