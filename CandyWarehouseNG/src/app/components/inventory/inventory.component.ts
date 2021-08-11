@@ -24,7 +24,6 @@ export class InventoryComponent implements OnInit {
   value: number[] = [];
   total = 0;
 
-
   display = false;
   display2 = true;
   display3 = false;
@@ -34,6 +33,7 @@ export class InventoryComponent implements OnInit {
     this.display = true;
     this.display2 = false;
     console.log(cat);
+    this.orderList = JSON.parse(localStorage.getItem('cart') || '[]');
     this.allCandy.getCat(cat).subscribe(
       (response) => {
         console.log(response);
@@ -57,6 +57,8 @@ export class InventoryComponent implements OnInit {
       (response) => {
         response.qtyOrdered = this.value[num];
         this.orderList.push(response);
+        let ol = JSON.stringify({ this: this.orderList })
+        localStorage.setItem('cart', ol);
         console.log(this.orderList);
         this.show[num] = trig;
         window.setTimeout(()=>{
