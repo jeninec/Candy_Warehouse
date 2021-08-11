@@ -1,1 +1,45 @@
-<p>employee works!</p>
+<h1>total orders</h1>
+<br>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">total_price</th>
+        <th scope="col">date_ordered</th>
+        <th scope="col">shiping_type</th>
+        <th scope="col">shipped</th>
+        <th scope="col">Items</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of OrdersList;">
+        <td>{{order.id}}</td>
+        <td>{{order.totalPrice}}</td>
+        <td>{{order.dateOrdered}}</td>      
+        <td>{{order.shippingType}}</td>
+        <td>{{order.shipped}}</td>
+        <td>{{order.itemId.length}}</td>
+        <td>
+            <ul>
+                <li>
+                    <span >Show Items</span>
+                    <ul *ngFor="let item of order.itemId;let i=index;">
+                      <li id ="itemNum" style="background-color:gold;">item number {{i+1}}</li>
+                      <li>catagory: {{item.catagory}}</li>
+                      <!-- <li>description: {{item.description}}</li> -->
+                      <li>name: {{item.name}}</li>
+                      <li>qty :{{item.qty}}</li>
+                      <li>qtyOrdered :{{item.qtyOrdered}}</li>
+                      
+
+                   </ul>
+                </li>
+            </ul>
+        </td>
+        <th><button>cancel order</button></th>
+        <th><button>get the order</button></th>
+    </tr>
+    </tbody>
+</table>
+ 
+
