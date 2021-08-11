@@ -11,65 +11,71 @@
 <div *ngIf="display">
     <h1 style="text-align: center; margin-top: 15px;">Order now</h1>
     <hr>
-    <img src="../../../assets/images/clipart4237996.png" id="back" (click)= "onPress2()">
-    <a (click)= "onPress2()">  back to categories</a>
+    <div id="cont">
+    <div  (click)= "onPress2()" id="backdiv">
+    <img src="../../../assets/images/clipart4237996.png" id="back">
+    <a class="aa">  back to categories</a>
+    </div>
+    <div (click)= "compute()" id="checkout">
+    <img src="../../../assets/images/cart.png" id="cart">
+    <a class="aa">   view cart</a>
+    </div>
+</div>
     <hr>
     <div class="grid-container">
-        <div *ngFor="let item2 of itemList2" class="grid"><h2>{{item2.name}}</h2><img src={{item2.imgSrc}} class="im" ></div>
+        <div *ngFor="let item2 of itemList2; let i = index" [attr.data-index]="i" class="grid">
+            <h2>{{item2.name}}</h2>
+            <img src={{item2.imgSrc}} class="im">
+            <input type="number" [(ngModel)]="value[i]" class="input">
+            <button *ngIf="value[i]>0" (click)="submitItem(itemList2[i].name, i, true)" class="btn2">Add Item(s)</button>
+            <p *ngIf="show[i]">Item(s) Added to Cart</p>
+
+        </div>
     </div>
     <button (click)="startNewOrder()">Add To Cart</button>
 </div>  
 
 
 <div *ngIf="display3">
-<h1 style="text-align: center; margin-top: 15px;">Order now</h1>
+<h1 style="text-align: center; margin-top: 15px;">Your Cart</h1>
 <hr>
-
+<div id="cont">
+    <div  (click)= "onPress2()" id="backdiv">
+    <img src="../../../assets/images/clipart4237996.png" id="back">
+    <a class="aa">  back to shopping</a>
+    </div>
+    <div id="checkout2">
+        <img src="../../../assets/images/checkout.jpg" id="cart2">
+        <a class="aa">   checkout</a>
+        </div>
+</div>
+<hr>
 <div class="container">
     <div class="row row-cols-2">
         <div class="col">
 
             <div id="inventory" class="table table-info table-bordered">
-                <h2 style="padding: 10px;">Warehouse inventory:</h2>
+                <h2 style="padding: 10px;">Your Shopping Cart Contains:</h2>
                 <table style="width: 100%;">
                     <tr>
-                        <th>ID</th>
+                        <th>Candy Name</th>
                         <th>Category</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Stock</th>
+                        <th>Quantity</th>
+                        <th>Price Each</th>
+                        <th>Items Price</th>
                     </tr>
-                    <tr *ngFor="let item of itemList">
-                        <td>{{item.id}}</td>
-                        <td>{{item.catagory}}</td>
+                    <tr *ngFor="let item of orderList; let i = index">
                         <td>{{item.name}}</td>
-                        <td>{{item.price}}</td>
-                        <td>{{item.qty}}</td> 
+                        <td>{{item.catagory}}</td>
+                        <td>{{item.qtyOrdered}}</td>
+                        <td>{{formatter.format(item.price)}}</td>
+                        <td>{{formatter.format(itemTotals[i])}}</td> 
                     </tr>
                 </table>
 
             </div>
-        </div>
-        <div class="col">
+       
 
-            <div id="cart" class="table table-danger table-bordered">
-                <h2 style="padding: 10px;">Shopping cart:</h2>
-                <table style="width: 100%;">
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Qty ordered</th>
-                        <th>Total price</th>
-                    </tr>
-                    <tr>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                </table>
-
-            </div>
         </div>
     </div>
 </div>
