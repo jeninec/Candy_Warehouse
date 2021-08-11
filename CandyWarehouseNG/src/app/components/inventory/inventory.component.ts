@@ -33,7 +33,7 @@ export class InventoryComponent implements OnInit {
   onPress(cat: any) {
     this.display = true;
     this.display2 = false;
-    console.log(this.orderList);
+    this.display3 = false;
 
     try {
       this.orderList = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -41,7 +41,6 @@ export class InventoryComponent implements OnInit {
     // conversion fails
    console.error( e ) 
 } 
-    console.log(this.orderList);
     this.allCandy.getCat(cat).subscribe(
       (response) => {
         this.itemList2 = response;
@@ -57,6 +56,7 @@ export class InventoryComponent implements OnInit {
   onPress2() {
     this.display = false;
     this.display2 = true;
+    this.display3 = false;
   }
 
   submitItem(name: string, num: number, trig: boolean){
@@ -64,7 +64,6 @@ export class InventoryComponent implements OnInit {
       (response) => {
         response.qtyOrdered = this.value[num];
         this.orderList.push(response);
-        console.log(this.orderList);
         let ol = JSON.stringify(this.orderList);
         localStorage.setItem('cart', ol);
         this.show[num] = trig;
@@ -77,13 +76,18 @@ export class InventoryComponent implements OnInit {
   }
 
   compute(){
+    console.log(this.orderList);
+    this.total = 0;
+    this.itemTotals = [];
+
+
     for (let index = 0; index < this.orderList.length; index++) {
       let qty = this.orderList[index].qtyOrdered;
       let itemT = qty*this.orderList[index].price;
       this.total += qty*this.orderList[index].price;
       this.itemTotals.push(itemT);
     }
-    console.log(this.total);
+    console.log(this.total+"test");
     this.display = false;
     this.display2 = false;
     this.display3 = true;
@@ -94,6 +98,12 @@ export class InventoryComponent implements OnInit {
     currency: 'USD',
   });
   
+  deleteItem(numy: number){
+    this.orderList.splice(numy, 1);
+    let ol = JSON.stringify(this.orderList);
+    localStorage.setItem('cart', ol);
+    this.compute();
+  }
   getAllCandy() {
 
     this.allCandy.getAllCandy().subscribe(

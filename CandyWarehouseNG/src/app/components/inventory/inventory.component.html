@@ -26,7 +26,10 @@
         <div *ngFor="let item2 of itemList2; let i = index" [attr.data-index]="i" class="grid">
             <h2>{{item2.name}}</h2>
             <img src={{item2.imgSrc}} class="im">
-            <input type="number" [(ngModel)]="value[i]" class="input">
+            <div class="desdiv">
+            <p class="des">{{itemList2[i].description}}</p>
+            </div>
+            <input type="number" [(ngModel)]="value[i]" class="input" min="0">
             <button *ngIf="value[i]>0" (click)="submitItem(itemList2[i].name, i, true)" class="btn2">Add Item(s)</button>
             <p *ngIf="show[i]">Item(s) Added to Cart</p>
 
@@ -52,32 +55,31 @@
 </div>
 <hr>
 <div class="container">
-    <div class="row row-cols-2">
-        <div class="col">
-
-            <div id="inventory" class="table table-info table-bordered">
-                <h2 style="padding: 10px;">Your Shopping Cart Contains:</h2>
-                <table style="width: 100%;">
+            <div id="inventory" class="table table-info table-bordered" id="center">
+                <h2 style="padding: 10px;" *ngIf="orderList.length > 0" class="center">Your Shopping Cart Contains:</h2>
+                <h2 style="padding: 10px;" *ngIf="orderList.length == 0" class="center">Your Shopping Cart Is Empty</h2>
+                <table style="width: 100%;" *ngIf="orderList.length > 0" class="center">
                     <tr>
                         <th>Candy Name</th>
                         <th>Category</th>
                         <th>Quantity</th>
                         <th>Price Each</th>
                         <th>Items Price</th>
+                        <th>Delete Item(s)</th>
                     </tr>
                     <tr *ngFor="let item of orderList; let i = index">
                         <td>{{item.name}}</td>
                         <td>{{item.catagory}}</td>
                         <td>{{item.qtyOrdered}}</td>
                         <td>{{formatter.format(item.price)}}</td>
-                        <td>{{formatter.format(itemTotals[i])}}</td> 
+                        <td>{{formatter.format(itemTotals[i])}}</td>
+                        <td><img src="../../../assets/images/delete.png" class="delete" (click) = "deleteItem(i)"></td> 
                     </tr>
                 </table>
-
+                <h2 style="padding: 10px;" *ngIf="orderList.length > 0" class="center">Your Total Is: {{formatter.format(total)}}</h2>
             </div>
        
 
         </div>
     </div>
-</div>
-</div>
+
