@@ -40,4 +40,8 @@ export class HttpPeopleService {
     return this.http.delete<boolean>('http://localhost:8080/people/' + id);
   }
 
+  addPeople(user: any): Observable<People> {
+    return this.http.post<People>('http://localhost:8080/people/', user, { headers: this.postHeaders });
+  }
+
 }

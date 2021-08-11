@@ -5,7 +5,7 @@
         <a id = "indexLink" routerLink = "/">Home</a>
     </span>
     <span>
-        <a id = "userLink" routerLink="user">User</a>
+        <a *ngIf="isBuyer" id = "userLink" routerLink="user">User</a>
     </span>
     <span>
         <a *ngIf="isEmployee" id = "employeeLink" routerLink="employee">Employee</a>
