@@ -13,6 +13,24 @@ export class InventoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCandy();
+    try {
+      let login = localStorage.getItem('email');
+      console.log("login" + login);
+      if(login != null){
+        this.sw = false;
+        this.sw2 = true;
+      }
+    } catch( e) {
+    // conversion fails
+    console.error( e ) 
+    } 
+
+    try {
+      this.orderList = JSON.parse(localStorage.getItem('cart') || '[]');
+} catch( e) {
+    // conversion fails
+   console.error( e ) 
+} 
   }
 
   
@@ -29,18 +47,15 @@ export class InventoryComponent implements OnInit {
   display2 = true;
   display3 = false;
   show: boolean[] = [];
+  sw = true;
+  sw2 = false;
   
   onPress(cat: any) {
     this.display = true;
     this.display2 = false;
     this.display3 = false;
 
-    try {
-      this.orderList = JSON.parse(localStorage.getItem('cart') || '[]');
-} catch( e) {
-    // conversion fails
-   console.error( e ) 
-} 
+
     this.allCandy.getCat(cat).subscribe(
       (response) => {
         this.itemList2 = response;
@@ -58,6 +73,15 @@ export class InventoryComponent implements OnInit {
     this.display2 = true;
     this.display3 = false;
   }
+
+  onPress3() {
+  
+    this.display = false;
+    this.display2 = false;
+    this.display3 = false;
+    
+  }
+
 
   submitItem(name: string, num: number, trig: boolean){
     this.allCandy.getCandyByName(name).subscribe(

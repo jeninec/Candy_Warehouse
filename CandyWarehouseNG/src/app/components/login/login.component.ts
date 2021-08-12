@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
 
   logout(){
     localStorage.removeItem("title");
+    localStorage.removeItem("email");
     this.responseMessage = "Logging out";
     location.reload();
   }

@@ -63,14 +63,18 @@
 <div *ngIf="display3">
 <hr>
 <div id="cont">
-    <div  (click)= "onPress2()" id="backdiv">
+    <div (click)= "onPress2()" id="backdiv">
     <img src="../../../assets/images/clipart4237996.png" id="back">
     <a class="aa">  back to shopping</a>
     </div>
-    <div id="checkout2">
+    <div *ngIf="sw" [routerLink]="['/login']" id="checkout2">
         <img src="../../../assets/images/checkout.jpg" id="cart2">
         <a class="aa">   checkout</a>
         </div>
+        <div *ngIf="sw2" (click)= "onPress3()" id="checkout2">
+            <img src="../../../assets/images/checkout.jpg" id="cart2">
+            <a class="aa">   checkout</a>
+            </div>
         <div id="yourcart">
             <h3>Your Cart</h3>
         </div>
