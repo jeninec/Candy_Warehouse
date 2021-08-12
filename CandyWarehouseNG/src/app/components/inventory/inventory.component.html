@@ -1,5 +1,20 @@
-
-<div class="grid-container" *ngIf="display2">
+<div *ngIf="display2">
+    <hr>
+    <div id="cont">
+    <div  (click)= "onPress2()" id="backdiv">
+    <img src="" id="back">
+    <a class="aa"></a>
+    </div>
+    <div (click)= "compute()" id="checkout">
+    <img src="../../../assets/images/cart.png" id="cart">
+    <a class="aa">   view cart</a>
+    </div>
+    <div id="order2">
+        <h3>Order now</h3>
+    </div>
+</div>
+<hr>
+<div class="grid-container">
     <div class="grid" (click) = "onPress('chocolate')"><h2>chocolate</h2><img src="../../../assets/images/twix.jpeg" class="im"></div>
     <div class="grid" (click) = "onPress('gummies')"><h2>gummies</h2><img src="../../../assets/images/gummy_bears.jpeg" class="im"></div>
     <div class="grid" (click) = "onPress('hard candies')"><h2>hard candies</h2><img src="../../../assets/images/jolly_ranchers.jpeg" class="im"></div>
@@ -7,9 +22,10 @@
     <div class="grid" (click) = "onPress('licorice')"><h2>licorice</h2><img src="../../../assets/images/twizzlers.jpeg" class="im"></div>
     <div class="grid" (click) = "onPress('bubble gum')"><h2>bubble gum</h2><img src="../../../assets/images/dbgum.jpeg" class="im"></div>
     </div>
-
+</div>
+    
 <div *ngIf="display">
-    <h1 style="text-align: center; margin-top: 15px;">Order now</h1>
+    
     <hr>
     <div id="cont">
     <div  (click)= "onPress2()" id="backdiv">
@@ -20,14 +36,21 @@
     <img src="../../../assets/images/cart.png" id="cart">
     <a class="aa">   view cart</a>
     </div>
+    <div id="order">
+        <h3>Order now</h3>
+    </div>
 </div>
     <hr>
     <div class="grid-container">
         <div *ngFor="let item2 of itemList2; let i = index" [attr.data-index]="i" class="grid">
             <h2>{{item2.name}}</h2>
             <img src={{item2.imgSrc}} class="im">
-            <input type="number" [(ngModel)]="value[i]" class="input">
+            <div class="desdiv">
+            <p class="des">{{itemList2[i].description}}</p>
+            </div>
+            <input type="number" [(ngModel)]="value[i]" class="input" min="0">
             <button *ngIf="value[i]>0" (click)="submitItem(itemList2[i].name, i, true)" class="btn2">Add Item(s)</button>
+            <p></p>
             <p *ngIf="show[i]">Item(s) Added to Cart</p>
 
         </div>
@@ -37,46 +60,51 @@
 
 
 <div *ngIf="display3">
-<h1 style="text-align: center; margin-top: 15px;">Your Cart</h1>
 <hr>
 <div id="cont">
-    <div  (click)= "onPress2()" id="backdiv">
+    <div (click)= "onPress2()" id="backdiv">
     <img src="../../../assets/images/clipart4237996.png" id="back">
     <a class="aa">  back to shopping</a>
     </div>
-    <div id="checkout2">
+    <div *ngIf="sw" [routerLink]="['/login']" id="checkout2">
         <img src="../../../assets/images/checkout.jpg" id="cart2">
         <a class="aa">   checkout</a>
+        </div>
+        <div *ngIf="sw2" (click)= "onPress3()" id="checkout2">
+            <img src="../../../assets/images/checkout.jpg" id="cart2">
+            <a class="aa">   checkout</a>
+            </div>
+        <div id="yourcart">
+            <h3>Your Cart</h3>
         </div>
 </div>
 <hr>
 <div class="container">
-    <div class="row row-cols-2">
-        <div class="col">
-
-            <div id="inventory" class="table table-info table-bordered">
-                <h2 style="padding: 10px;">Your Shopping Cart Contains:</h2>
-                <table style="width: 100%;">
+            <div id="inventory" class="table table-info table-bordered" id="center">
+                <h2 style="padding: 10px;" *ngIf="orderList.length > 0" class="center">Your Shopping Cart Contains:</h2>
+                <h2 style="padding: 10px;" *ngIf="orderList.length == 0" class="center">Your Shopping Cart Is Empty</h2>
+                <table style="width: 100%;" *ngIf="orderList.length > 0" class="center">
                     <tr>
                         <th>Candy Name</th>
                         <th>Category</th>
                         <th>Quantity</th>
                         <th>Price Each</th>
                         <th>Items Price</th>
+                        <th>Delete Item(s)</th>
                     </tr>
                     <tr *ngFor="let item of orderList; let i = index">
                         <td>{{item.name}}</td>
                         <td>{{item.catagory}}</td>
                         <td>{{item.qtyOrdered}}</td>
                         <td>{{formatter.format(item.price)}}</td>
-                        <td>{{formatter.format(itemTotals[i])}}</td> 
+                        <td>{{formatter.format(itemTotals[i])}}</td>
+                        <td><img src="../../../assets/images/delete.png" class="delete" (click) = "deleteItem(i)"></td> 
                     </tr>
                 </table>
-
+                <h2 style="padding: 10px;" *ngIf="orderList.length > 0" class="center">Your Total Is: {{formatter.format(total)}}</h2>
             </div>
        
 
         </div>
     </div>
-</div>
-</div>
+

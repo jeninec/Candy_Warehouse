@@ -70,6 +70,13 @@ public class CandyCompanyApplication {
 			ir.save(new Item("blow pops", "lollipops", 0.95, 15, "delicious fruit flavored hard candy shell with a soft bubble gum center", "../../../assets/images/blow_pops.jpeg", 0));
 			ir.save(new Item("twizzler", "licorice", 1.65, 15, "twisted strawberry licorice", "../../../assets/images/twizzlers.jpeg", 0));
 			
+			ir.save(new Item("black licorice", "licorice", 1.65, 15, "regular black licorice", "../../../assets/images/black_licorice.jpeg", 0));
+			ir.save(new Item("red vines", "licorice", 1.65, 15, "thin strawberry licorice", "../../../assets/images/red_vines.jpeg", 0));
+			ir.save(new Item("dum dums", "lollipops", 0.45, 10, "hard fruity lollipop", "../../../assets/images/dum_dums.jpeg", 0));
+			ir.save(new Item("bubble yum", "bubble gum", 0.30, 90, "soft chewy bubble gum", "../../../assets/images/bubble_yum.jpeg", 0));
+			ir.save(new Item("dubble bubble", "bubble gum", 0.20, 200, "hard chewy bubble gum", "../../../assets/images/dbgum.jpeg", 0));
+			ir.save(new Item("bazooka", "bubble gum", 0.15, 100, "hard chewy bubble gum", "../../../assets/images/bazooka.jpeg", 0));
+			ir.save(new Item("sour gummy worms", "gummies", 1.90, 35, "sour, fruit gum candies shaped in the form of a worm", "../../../assets/images/sour_worms.png", 0));
 			
 			List<Item> ord = new ArrayList<Item>();
 			ord.add(is.getItem(1));

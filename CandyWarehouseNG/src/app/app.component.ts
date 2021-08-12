@@ -13,17 +13,24 @@ export class AppComponent {
       this.isAdmin = true;
       this.isManager = true;
       this.isEmployee = true;
+      this.isBuyer = true;
     }
     else if(localStorage.getItem("title") == "manager"){
       this.isManager = true;
       this.isEmployee = true;
+      this.isBuyer = true;
     }
     else if(localStorage.getItem("title") == "employee"){
       this.isEmployee = true;
+      this.isBuyer = true;
+    }
+    else if(localStorage.getItem("title") == "buyer"){
+      this.isBuyer = true;
     }
   }
 
   isAdmin: boolean = false;
   isManager: boolean = false;
   isEmployee: boolean = false;
+  isBuyer: boolean = false;
 }
