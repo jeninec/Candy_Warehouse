@@ -11,12 +11,18 @@ export class LoginComponent implements OnInit {
   constructor(private loginServ: LoginService) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem("title") == null){
+      this.notLoggedIn = true;
+    } else {
+      this.notLoggedIn = false;
+    }
   }
   
   email: string = '';
   password: string = '';
   responseMessage: string = '';
  
+  notLoggedIn: boolean = true;
 
   login() {
 
@@ -30,7 +36,11 @@ export class LoginComponent implements OnInit {
           this.responseMessage = "Success! Logging in...";
           localStorage.setItem("title", user.title);
           localStorage.setItem("email", user.email);
-          location.reload();
+
+          window.setTimeout(()=>{
+            location.reload();
+         }, 1500);
+          
          }else {  
            console.log("Incorrect credentials");
            this.responseMessage = "Incorrect credentials";
@@ -46,7 +56,9 @@ export class LoginComponent implements OnInit {
     localStorage.removeItem("title");
     localStorage.removeItem("email");
     this.responseMessage = "Logging out";
-    location.reload();
+    window.setTimeout(()=>{
+      location.reload();
+   }, 1500);
   }
 
 }
