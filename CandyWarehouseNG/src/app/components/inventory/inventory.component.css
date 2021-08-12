@@ -44,19 +44,32 @@ margin-left: auto;
 }
 
 #checkout{
-position: relative;
-display: inline;
 float: right;
 padding-right: 20px;
 }
 
 #backdiv{
-position: relative;
-display: inline;
+float: left;
+}
+
+#order{
+  margin:0 auto;
+  padding-right: 200px;
+}
+
+#order2{
+  margin:0 auto;
+  padding-left: 150px;
+}
+
+#yourcart{
+  margin:0 auto;
+  padding-right: 200px;
 }
 
 #cont{
 width: 100%;
+text-align: center;
 }
 
 #cart{
