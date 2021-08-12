@@ -19,6 +19,8 @@ public class CandyWHRunner {
 	public static WebDriver driver;
 	public static CandyWHPage cMain;
 	public static LoginPage loginPage;
+	public static EditUserPage editUserPage;
+	public static ManagerPage managerPage;
 	
 	@BeforeClass
 	public static void setUp() {
@@ -27,11 +29,13 @@ public class CandyWHRunner {
 		driver = new ChromeDriver();
 		cMain = new CandyWHPage(driver);
 		loginPage = new LoginPage(driver);
+		editUserPage = new EditUserPage(driver);
+		managerPage = new ManagerPage(driver);
 	}
 	
-//	@AfterClass
-//	public static void tearDown() {
-//		driver.quit();
-//	}
+	@AfterClass
+	public static void tearDown() {
+		driver.quit();
+	}
 	
 }

@@ -21,9 +21,6 @@ public class LoginPage {
 	@FindBy(id = "logoutButton")
 	public WebElement logoutButton;
 	
-	@FindBy(id = "adminLink")
-	public WebElement adminLink;
-	
 	public LoginPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 		this.webdriver = driver;
