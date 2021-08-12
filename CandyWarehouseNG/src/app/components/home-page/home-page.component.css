@@ -1,5 +1,18 @@
 #wallpaper {
-    position: absolute;
+    margin: auto;
     width: 100%;
-    height: 100%;
+    border: 2px cyan;
+}
+
+.row {
+    margin: 2em;
+}
+
+.card-title {
+    color: darkslateblue;
+    margin: 0.8em 0em;
+}
+
+#home-card {
+    background-color: #C2E8FC;
 }

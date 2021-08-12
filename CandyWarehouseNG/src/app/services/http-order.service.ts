@@ -21,8 +21,12 @@ export class HttpOrderService {
     return this.http.post<Order>('http://localhost:8080/orders',Order,{ headers: this.postHeaders });
   }
   deleteOrder(order:Order) : Observable<Order> { 
-    // may be we shold to add Id
-    return this.http.put<Order>('http://localhost:/orders'+  Order ,Order,{ headers: this.postHeaders });
+    
+    return this.http.put<Order>('http://localhost:8080/orders'+  Order ,Order,{ headers: this.postHeaders });
+  }
+  updateOrder(orderU:any) : Observable<Object> { 
+    console.log(orderU.id);
+    return this.http.put<Object>('http://localhost:8080/orders/'+  orderU.id ,orderU,{ headers: this.postHeaders });
   }
 
 }
