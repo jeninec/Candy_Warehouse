@@ -28,7 +28,7 @@ html {
 .about-section {
   padding: 50px;
   text-align: center;
-  background-color: #1b6b79;
+  background-color: slateblue;
   color: white;
 }
 
@@ -44,6 +44,16 @@ html {
 
 .title {
   color: grey;
+}
+
+.row {
+  margin: auto;
+  padding-left: 5em;
+}
+
+img {
+  border-radius: 4px;
+  height: auto;
 }
 
 .button {
