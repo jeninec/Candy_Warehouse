@@ -31,6 +31,7 @@
             </div>
             <input type="number" [(ngModel)]="value[i]" class="input" min="0">
             <button *ngIf="value[i]>0" (click)="submitItem(itemList2[i].name, i, true)" class="btn2">Add Item(s)</button>
+            <p></p>
             <p *ngIf="show[i]">Item(s) Added to Cart</p>
 
         </div>
