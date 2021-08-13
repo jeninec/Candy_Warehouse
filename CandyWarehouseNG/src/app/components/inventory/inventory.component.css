@@ -17,7 +17,7 @@
 }
 .grid {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   padding: 20px;
   font-size: 30px;
   text-align: center;
@@ -28,7 +28,8 @@
 }
 
 .im{
-width: 200px;
+  width: 300px;
+  margin-left: 1em;
 }
 
 .btn2{
@@ -55,11 +56,13 @@ float: left;
 #order{
   margin:0 auto;
   padding-right: 200px;
+  color: darkslateblue;
 }
 
 #order2{
   margin:0 auto;
   padding-left: 150px;
+  color: darkslateblue;
 }
 
 #yourcart{
@@ -119,4 +122,21 @@ text-align: center;
 
 .desdiv{
   height: 15%;
+  margin-top: 0.3em;
+}
+
+h2{
+  color: slateblue;
+  margin-top: 0.15em;
+}
+
+.card {
+  border: 1px solid rgba(192, 192, 192, 0.8);
+  margin: 0.25em;
+}
+
+.order h1 {
+  color: darkslateblue;
+  margin: 0.5em;
+  text-align: center;
 }
