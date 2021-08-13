@@ -1,22 +1,24 @@
 <h1>User Page</h1>
 
 <!-- Toggle the display-->
-<button class="viewButtons" (click)="displayInfo()" type="checkbox" >Show Info</button>
-<button class="viewButtons" (click)="changeInfo()" type="checkbox" >Edit Info</button>
+<button id="showButton" class="btn btn-primary" (click)="displayInfo()" type="checkbox" >Show Info</button>
+<button id="editButton" class="btn btn-secondary" (click)="changeInfo()" type="checkbox" >Edit Info</button>
 
 
 <div *ngIf="showInfo">
     <div class="card">
-        <h2>Name: {{user.firstname}} {{user.lastname}}</h2>
-        <br>
-        <h4>Role: {{user.title}}</h4>
-        <br>
-        <p>Address: {{user.address1}},  {{user.city}}, {{user.state}} {{user.zip}}</p>
-        <br>
-        <p>Email: {{user.email}}</p>
-        <br>
-        <p>Phone Number: {{user.phone}}</p>
-        <br>
+        <fieldset>
+            <h2>Name: {{user.firstname}} {{user.lastname}}</h2>
+            <br>
+            <h4>Role: {{user.title}}</h4>
+            <br>
+            <p>Address: {{user.address1}},  {{user.city}}, {{user.state}} {{user.zip}}</p>
+            <br>
+            <p>Email: {{user.email}}</p>
+            <br>
+            <p>Phone Number: {{user.phone}}</p>
+            <br>
+        </fieldset>
     </div>
 </div>
 
@@ -55,7 +57,7 @@
                 <input type="text" class="form-control" [(ngModel)]="user.phone">
             </div>
     
-            <button (click)="updateEmp()">Submit Changes</button>
+            <button class="btn btn-primary" (click)="updateEmp()">Submit Changes</button>
         </fieldset>
     </div>
     </div>

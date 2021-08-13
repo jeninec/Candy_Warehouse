@@ -10,18 +10,30 @@
     <a class="aa">   view cart</a>
     </div>
     <div id="order2">
-        <h3>Order now</h3>
+        <h1>Order now</h1>
     </div>
 </div>
 <hr>
 <div class="grid-container">
-    <div class="grid" (click) = "onPress('chocolate')"><h2>chocolate</h2><img src="../../../assets/images/twix.jpeg" class="im"></div>
-    <div class="grid" (click) = "onPress('gummies')"><h2>gummies</h2><img src="../../../assets/images/gummy_bears.jpeg" class="im"></div>
-    <div class="grid" (click) = "onPress('hard candies')"><h2>hard candies</h2><img src="../../../assets/images/jolly_ranchers.jpeg" class="im"></div>
-    <div class="grid" (click) = "onPress('lollipops')"><h2>lollipops</h2><img src="../../../assets/images/blow_pops.jpeg" class="im"></div>
-    <div class="grid" (click) = "onPress('licorice')"><h2>licorice</h2><img src="../../../assets/images/twizzlers.jpeg" class="im"></div>
-    <div class="grid" (click) = "onPress('bubble gum')"><h2>bubble gum</h2><img src="../../../assets/images/dbgum.jpeg" class="im"></div>
+    <div class="card">
+        <div class="grid" (click) = "onPress('chocolate')"><h2>chocolate bars</h2><img src="../../../assets/images/twix.jpeg" class="im"></div>
     </div>
+    <div class="card">
+        <div class="grid" (click) = "onPress('gummies')"><h2>gummies</h2><img src="../../../assets/images/gummy_bears.jpeg" class="im"></div>
+    </div>
+    <div class="card">
+        <div class="grid" (click) = "onPress('hard candies')"><h2>hard candies</h2><img src="../../../assets/images/jolly_ranchers.jpeg" class="im"></div>
+    </div>
+    <div class="card">
+        <div class="grid" (click) = "onPress('lollipops')"><h2>lollipops</h2><img src="../../../assets/images/blow_pops.jpeg" class="im"></div>
+    </div>
+    <div class="card">
+        <div class="grid" (click) = "onPress('licorice')"><h2>licorice</h2><img src="../../../assets/images/twizzlers.jpeg" class="im"></div>
+    </div>
+    <div class="card">
+        <div class="grid" (click) = "onPress('bubble gum')"><h2>bubble gum</h2><img src="../../../assets/images/dbgum.jpeg" class="im"></div>
+    </div>
+</div>
 </div>
     
 <div *ngIf="display">
@@ -37,16 +49,18 @@
     <a class="aa">   view cart</a>
     </div>
     <div id="order">
-        <h3>Order now</h3>
+        <h1>Order now</h1>
     </div>
 </div>
     <hr>
     <div class="grid-container">
         <div *ngFor="let item2 of itemList2; let i = index" [attr.data-index]="i" class="grid">
-            <h2>{{item2.name}}</h2>
-            <img src={{item2.imgSrc}} class="im">
-            <div class="desdiv">
-            <p class="des">{{itemList2[i].description}}</p>
+            <div class="card">
+                <h2>{{item2.name}}</h2>
+                <img src={{item2.imgSrc}} class="im">
+                <div class="desdiv">
+                <p class="des">{{itemList2[i].description}}</p>
+                </div>
             </div>
             <input type="number" [(ngModel)]="value[i]" class="input" min="0">
             <button *ngIf="value[i]>0" (click)="submitItem(itemList2[i].name, i, true)" class="btn2">Add Item(s)</button>

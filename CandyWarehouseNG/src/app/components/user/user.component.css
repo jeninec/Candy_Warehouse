@@ -1,16 +1,24 @@
-.viewButtons{
-    margin: 1em;
+#showButton {
+    margin: 0em 0.5em 0.5em 1em;
+}
+
+#editButton {
+    margin: 0em 0.5em 0.5em 0.5em;
 }
 
 fieldset {
     width: 50%;
-    border: solid black;
     margin: 5px 5px;
     padding: 1em;
 }
 
 .card {
-    width: 95%;
-    margin-left: 1em;
+    margin: 0.8em 1em 1em;
+}
+
+h1{
+    color: darkslateblue;
+    margin: 0.5em;
+    text-align: center;
 }
 
