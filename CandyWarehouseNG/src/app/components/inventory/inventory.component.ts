@@ -20,7 +20,7 @@ export class InventoryComponent implements OnInit {
     this.getAllCandy();
     try {
       let login = localStorage.getItem('email');
-      console.log("login" + login);
+      
       if(login != null){
         this.sw = false;
         this.sw2 = true;
@@ -32,6 +32,7 @@ export class InventoryComponent implements OnInit {
 
     try {
       this.orderList = JSON.parse(localStorage.getItem('cart') || '[]');
+      this.qtyO = JSON.parse(localStorage.getItem('qtyO') || '[]');
 } catch( e) {
     // conversion fails
    console.error( e ) 
@@ -45,6 +46,7 @@ export class InventoryComponent implements OnInit {
   orderList: Item[] =[];
   itemTotals: number[] = [];
   user: People = new People(0, "", "", "", "", "", "", "" , "", "", "", "", []);
+  qtyO: number[] = [];
 
   value: number[] = [];
   total = 0;
@@ -61,6 +63,8 @@ export class InventoryComponent implements OnInit {
   tbt = 0;
   tax = 0;
   newtotal = 0;
+
+  options = '';
   
   onPress(cat: any) {
     this.display = true;
@@ -101,11 +105,15 @@ export class InventoryComponent implements OnInit {
   submitItem(name: string, num: number, trig: boolean){
     this.allCandy.getCandyByName(name).subscribe(
       (response) => {
-        response.qtyOrdered = this.value[num];
+        this.qtyO.push(this.value[num]);
         this.orderList.push(response);
         let ol = JSON.stringify(this.orderList);
+        let qo = JSON.stringify(this.qtyO);
         localStorage.setItem('cart', ol);
+        localStorage.setItem('qtyO', qo);
         this.show[num] = trig;
+        console.log(this.qtyO);
+        console.log(this.orderList);
         window.setTimeout(()=>{
           this.show[num] = false;
        }, 1500);
@@ -115,18 +123,18 @@ export class InventoryComponent implements OnInit {
   }
 
   compute(){
-    console.log(this.orderList);
+    
     this.total = 0;
     this.itemTotals = [];
 
 
     for (let index = 0; index < this.orderList.length; index++) {
-      let qty = this.orderList[index].qtyOrdered;
+      let qty = this.qtyO[index];
       let itemT = qty*this.orderList[index].price;
       this.total += qty*this.orderList[index].price;
       this.itemTotals.push(itemT);
     }
-    console.log(this.total+"test");
+    
     this.display = false;
     this.display2 = false;
     this.display3 = true;
@@ -157,7 +165,7 @@ export class InventoryComponent implements OnInit {
       this.peopleHttp.getPersonByEmail(email.toString()).subscribe(
     
       (response) => {
-        console.log(response);
+        
         this.user = response;
         if(this.user.address2 == ""){
           this.sw3 = false;
@@ -180,10 +188,17 @@ export class InventoryComponent implements OnInit {
   );
 }
 
-buildOrder: Order = new Order(0, 0, "", "", false, []);
+buildOrder: Order = new Order(0, 0, "", "", false, [], []);
 // Starts a new order with whatever is in the cart and updates the user with said order
 checkoutOrder() {
+  
   this.buildOrder.itemId = this.orderList;
+  this.buildOrder.qtyO = this.qtyO;
+  this.buildOrder.totalPrice = this.newtotal;
+  let dateTime = new Date().toLocaleString()
+  this.buildOrder.dateOrdered = dateTime;
+  this.buildOrder.shippingType = this.options;
+
   this.newOrder.addOrder(this.buildOrder).subscribe(
     (response) => {
       this.buildOrder = response;
@@ -197,14 +212,17 @@ email: string = JSON.stringify(localStorage.getItem("email"));
 emailNoQuotes = this.email.replace(/"/g, '');
 // Updates the user with their order
 addOrderToPerson() {
+  localStorage.removeItem("qtyO");
+  localStorage.removeItem("cart");
   console.log(this.emailNoQuotes);
   this.peopleHttp.getPersonByEmail(this.emailNoQuotes).subscribe(
     (response) => {
       let person = response;
-      person.orderId.push(this.buildOrder)
+      console.log(this.buildOrder);
+      person.orderId.push(this.buildOrder);
       this.peopleHttp.updatePeople(person).subscribe(
         (updatedPerson) => {
-          console.log(updatedPerson)
+          console.log(updatedPerson);
         }
       )
     }

@@ -37,7 +37,7 @@ public class OrderControllerTests {
 	@Test
 	void getAllOrders() throws Exception {
 		List<Item> iList = new ArrayList<Item>();
-		Order order = new Order(1, 5.20, "2020/05/21", "truck", false, iList);
+		Order order = new Order(1, 5.20, "2020/05/21", "truck", false, null, iList);
 		List<Order> orderList = new ArrayList<Order>();
 		orderList.add(order);
 		
@@ -50,7 +50,7 @@ public class OrderControllerTests {
 	@Test
 	void getOrderById() throws Exception {
 		List<Item> iList = new ArrayList<Item>();
-		Order order = new Order(1, 5.20, "2020/05/21", "truck", false, iList);
+		Order order = new Order(1, 5.20, "2020/05/21", "truck", false, null, iList);
 		
 		Mockito.when(os.getOrder(1)).thenReturn(order);
 		
@@ -61,9 +61,9 @@ public class OrderControllerTests {
 	@Test
 	void addOrder() throws Exception {
 		List<Item> iList = new ArrayList<Item>();
-		Order order = new Order(5.20, "2020/05/21", "truck", false, iList);
+		Order order = new Order(5.20, "2020/05/21", "truck", false, null, iList);
 		
-		Mockito.when(os.addOrder(order)).thenReturn(new Order(1, 5.20, "2020/05/21", "truck", false, iList));
+		Mockito.when(os.addOrder(order)).thenReturn(new Order(1, 5.20, "2020/05/21", "truck", false, null, iList));
 	
 		ResultActions ra = mvc.perform(post("/orders")
 				  .content(asJsonString(order))
@@ -75,9 +75,9 @@ public class OrderControllerTests {
 	@Test
 	void updateOrder() throws Exception {
 		List<Item> iList = new ArrayList<Item>();
-		Order order = new Order(1, 5.20, "2020/05/21", "truck", false, iList);
+		Order order = new Order(1, 5.20, "2020/05/21", "truck", false, null, iList);
 	
-		Mockito.when(os.updateOrder(order)).thenReturn(new Order(1, 5.20, "2020/05/21", "car", false, iList));
+		Mockito.when(os.updateOrder(order)).thenReturn(new Order(1, 5.20, "2020/05/21", "car", false, null, iList));
 	
 		ResultActions ra = mvc.perform(put("/orders/1")
 				  .content(asJsonString(order))

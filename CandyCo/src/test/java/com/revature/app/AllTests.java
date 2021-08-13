@@ -87,7 +87,7 @@ public class AllTests {
 	@Test
 	@Rollback
 	void addOrder() {
-		Order order = new Order(20.00, "01/21/21", "USPS", false, null);
+		Order order = new Order(20.00, "01/21/21", "USPS", false, null, null);
 		Assertions.assertEquals(0, order.getId());
 		
 		order = or.save(order);

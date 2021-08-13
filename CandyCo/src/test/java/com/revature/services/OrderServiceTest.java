@@ -27,9 +27,9 @@ public class OrderServiceTest {
 	@Test
 	void addOrder() {
 		List<Item> iList = new ArrayList<Item>();
-		Order order = new Order(15.20, "2020/05/21", "truck", false, iList);
+		Order order = new Order(15.20, "2020/05/21", "truck", false, null, iList);
 		
-		Mockito.when(or.save(order)).thenReturn(new Order(1, 15.20, "2020/05/21", "truck", false, iList));
+		Mockito.when(or.save(order)).thenReturn(new Order(1, 15.20, "2020/05/21", "truck", false, null, iList));
 	
 		order = os.addOrder(order);
 	
@@ -40,7 +40,7 @@ public class OrderServiceTest {
 	@Test
 	void getOrder() {
 		List<Item> iList = new ArrayList<Item>();
-		Order order = new Order(1, 5.20, "2020/05/21", "truck", false, iList);
+		Order order = new Order(1, 5.20, "2020/05/21", "truck", false, null, iList);
 		Optional<Order> optionO = Optional.of(order);
 		
 		Mockito.when(or.findById(order.getId())).thenReturn(optionO);
@@ -51,7 +51,7 @@ public class OrderServiceTest {
 	@Test
 	void getAllOrders() {
 		List<Item> iList = new ArrayList<Item>();
-		Order order = new Order(1, 5.20, "2020/05/21", "truck", false, iList);
+		Order order = new Order(1, 5.20, "2020/05/21", "truck", false, null, iList);
 		List<Order> orderList = new ArrayList<Order>();
 		orderList.add(order);
 		
@@ -66,9 +66,9 @@ public class OrderServiceTest {
 	@Test
 	void updateOrder() {
 		List<Item> iList = new ArrayList<Item>();
-		Order order = new Order(1, 5.20, "2020/05/21", "truck", false, iList);
+		Order order = new Order(1, 5.20, "2020/05/21", "truck", false, null, iList);
 		
-		Mockito.when(or.save(order)).thenReturn(new Order(1, 15.20, "2020/05/21", "truck", false, iList));
+		Mockito.when(or.save(order)).thenReturn(new Order(1, 15.20, "2020/05/21", "truck", false, null, iList));
 		
 		order = os.updateOrder(order);
 		
@@ -78,7 +78,7 @@ public class OrderServiceTest {
 	@Test
 	void deleteItem() {
 		List<Item> iList = new ArrayList<Item>();
-		Order order = new Order(5.20, "2020/05/21", "truck", false, iList);
+		Order order = new Order(5.20, "2020/05/21", "truck", false, null, iList);
 		
 		Mockito.doThrow(IllegalArgumentException.class).when(or).deleteById(order.getId());
 		

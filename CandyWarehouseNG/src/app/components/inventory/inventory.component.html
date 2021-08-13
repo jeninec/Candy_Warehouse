@@ -96,7 +96,7 @@
                     <tr *ngFor="let item of orderList; let i = index">
                         <td>{{item.name}}</td>
                         <td>{{item.catagory}}</td>
-                        <td>{{item.qtyOrdered}}</td>
+                        <td>{{qtyO[i]}}</td>
                         <td>{{formatter.format(item.price)}}</td>
                         <td>{{formatter.format(itemTotals[i])}}</td>
                         <td><img src="../../../assets/images/delete.png" class="delete" (click) = "deleteItem(i)"></td> 
@@ -112,7 +112,7 @@
 <div *ngIf="display4">
     <hr>
     <div id="cont">
-        <div (click)= "onPress3()" id="backdiv">
+        <div (click)= "compute()" id="backdiv">
         <img src="../../../assets/images/clipart4237996.png" id="back">
         <a class="aa">  back to cart</a>
         </div>
@@ -177,12 +177,11 @@
         <div id="pay-bill">
             <h3>Payment Method</h3>
             <label id="ct">Card Type:</label>
-            <select id="card_type">
-                <option value="0">- select -</option>
-                <option value="1">MasterCard</option>
-                <option value="2">Visa</option>
-                <option value="3">Discover</option>
-                <option value="4">American Express</option>
+            <select clrSelect id="card_type">
+                <option value="MasterCard">MasterCard</option>
+                <option value="Visa">Visa</option>
+                <option value="Discover">Discover</option>
+                <option value="American Express">American Express</option>
             </select>
             <span id="cn">Card Number:</span>
             <input type="text">
@@ -196,11 +195,10 @@
         <div id="delivery">
             <h3>Delivery</h3>
             <label id="ct">Choose a delivery option:</label>
-            <select id="card_type">
-                <option value="0">- select -</option>
-                <option value="1">UPS</option>
-                <option value="2">FedEx</option>
-                <option value="3">USPS</option>
+            <select clrSelect id="card_type" name="options" [(ngModel)]="options">
+                <option value="UPS">UPS</option>
+                <option value="FedEx">FedEx</option>
+                <option value="USPS">USPS</option>
             </select>
             <br><br><br><br>
         </div>

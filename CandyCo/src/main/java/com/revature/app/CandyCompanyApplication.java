@@ -81,7 +81,7 @@ public class CandyCompanyApplication {
 			List<Item> ord = new ArrayList<Item>();
 			ord.add(is.getItem(1));
 			ord.add(is.getItem(2));
-			or.save(new Order(10.00, "01/21/21", "FEDEX", false, ord));
+			or.save(new Order(10.00, "01/21/21", "FEDEX", false, null, ord));
 			System.out.println(ord);
 			
 		};
