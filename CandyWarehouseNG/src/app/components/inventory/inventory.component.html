@@ -83,7 +83,9 @@
         <img src="../../../assets/images/checkout.jpg" id="cart2">
         <a class="aa">   checkout</a>
         </div>
+
         <div *ngIf="sw2" (click)= "onPress3()" id="checkout2">
+
             <img src="../../../assets/images/checkout.jpg" id="cart2">
             <a class="aa">   checkout</a>
             </div>
@@ -115,6 +117,8 @@
                     </tr>
                 </table>
                 <h2 style="padding: 10px;" *ngIf="orderList.length > 0" class="center">Your Total Is: {{formatter.format(total)}}</h2>
+                <button (click)="checkoutOrder()">Checkout Order *test*</button>
+
             </div>
        
 

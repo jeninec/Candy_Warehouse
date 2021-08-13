@@ -92,7 +92,7 @@ export class InventoryComponent implements OnInit {
       (response) => {
         response.qtyOrdered = this.value[num];
         this.orderList.push(response);
-        let ol = JSON.stringify(this.orderList);
+        const ol = JSON.stringify(this.orderList);
         localStorage.setItem('cart', ol);
         this.show[num] = trig;
         window.setTimeout(()=>{
@@ -132,8 +132,8 @@ export class InventoryComponent implements OnInit {
     localStorage.setItem('cart', ol);
     this.compute();
   }
-  getAllCandy() {
 
+  getAllCandy() {
     this.allCandy.getAllCandy().subscribe(
       (response) => {
         console.log(response)
@@ -143,30 +143,36 @@ export class InventoryComponent implements OnInit {
   }
 
   buildOrder: Order = new Order(0, 0, "", "", false, []);
-  // Starts an empty order
-  startNewOrder() {
+  // Starts a new order with whatever is in the cart and updates the user with said order
+  checkoutOrder() {
+    this.buildOrder.itemId = this.orderList
     this.newOrder.addOrder(this.buildOrder).subscribe(
       (response) => {
+        this.buildOrder = response;
         console.log(response);
+        this.addOrderToPerson();
       }
     ) 
   }
 
-  itemsInCart: Item[] = [];
-  // Updates the order with the list of itemsInCart[]
-  updateCart() {
-    this.newOrder.updateOrder(this.buildOrder).subscribe(
+  email: string = JSON.stringify(localStorage.getItem("email"));
+  emailNoQuotes = this.email.replace(/"/g, '');
+  // Updates the user with their order
+  addOrderToPerson() {
+    console.log(this.emailNoQuotes);
+    this.putPerson.getPersonByEmail(this.emailNoQuotes).subscribe(
       (response) => {
-        response.itemId = this.itemsInCart;
+        let person = response;
+        person.orderId.push(this.buildOrder)
+        this.putPerson.updatePeople(person).subscribe(
+          (updatedPerson) => {
+            console.log(updatedPerson)
+          }
+        )
       }
     )
-  }
-
-  addOrderToPerson() {
-
-    // this.putPerson.getPersonByEmail()
 
   }
+}
   
 
-}
