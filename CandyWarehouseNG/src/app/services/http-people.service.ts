@@ -21,7 +21,7 @@ export class HttpPeopleService {
   }
 
   getPersonByEmail(email: string): Observable<People>{
-    return this.http.get<People>('http://localhost:8080/people/search-email?email=' + email);
+    return this.http.get<People>('http://localhost:8080/people/search-email?email=' + email, {responseType: "json"});
   }
 
   getPersonByName(fname: string, lname: string): Observable<People>{
