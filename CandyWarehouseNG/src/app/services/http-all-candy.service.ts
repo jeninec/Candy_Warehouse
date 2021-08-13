@@ -21,6 +21,10 @@ export class HttpAllCandyService {
     return this.http.post<Item>('http://localhost:8080/items', item, { headers: this.postHeaders });
   }
 
+  updateCandy(item: Item): Observable<Item>{
+    return this.http.put<Item>('http://localhost:8080/items/' + item.id, item, { headers: this.postHeaders });
+  }
+
   getCat(param: string): Observable<Item[]> {
     return this.http.get<Item[]>('http://localhost:8080/items/search-cat/?catagory=' + param, {responseType: "json"} );
   }

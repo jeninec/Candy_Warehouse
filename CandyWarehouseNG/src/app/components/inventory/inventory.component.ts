@@ -114,6 +114,15 @@ export class InventoryComponent implements OnInit {
         this.show[num] = trig;
         console.log(this.qtyO);
         console.log(this.orderList);
+
+        response.qty = response.qty - this.value[num];
+
+        this.allCandy.updateCandy(response).subscribe(
+    (response) => {
+      console.log("updated item");
+    }
+  );
+
         window.setTimeout(()=>{
           this.show[num] = false;
        }, 1500);
@@ -183,7 +192,7 @@ export class InventoryComponent implements OnInit {
 
   this.peopleHttp.updatePeople(this.peopleServ.people).subscribe(
     (response) => {
-      alert("User Successfully Updated");
+      console.log("updated person");
     }
   );
 }
