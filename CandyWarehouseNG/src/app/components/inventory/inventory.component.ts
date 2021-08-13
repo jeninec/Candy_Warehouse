@@ -142,7 +142,6 @@ export class InventoryComponent implements OnInit {
     )
   }
 
-  
   buildOrder: Order = new Order(0, 0, "", "", false, []);
   // Starts an empty order
   startNewOrder() {
