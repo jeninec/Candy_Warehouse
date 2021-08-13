@@ -13,10 +13,7 @@ export class RegisterComponent implements OnInit {
   constructor(private router: Router, private peopleHttp: HttpPeopleService, private peopleServ: PeopleService) { }
 
   ngOnInit(): void {
-    this.notComplete = false;
   }
-
-  notComplete: boolean = false;
 
   id: number = 0;
   firstName: string = "";
@@ -35,36 +32,30 @@ export class RegisterComponent implements OnInit {
   json: any = {};
 
   createAccount(){
-
-    if(this.email == "" || this.password == "" || this.firstName == "" || this.lastName == ""
-      || this.address1 == "" || this.city == "" || this.state == "" || this.zip == ""){
-      alert("Please fill out the form");
-    } else {
-        this.json = 
-        {
-          "firstname" : this.firstName,
-          "lastname" : this.lastName,
-          "email" : this.email,
-          "password" : this.password,
-          "address1" : this.address1,
-          "address2" : this.address2,
-          "city" : this.city,
-          "state" : this.state,
-          "zip" : this.zip,
-          "phone" : this.phone,
-          "title" : this.title,
-          "orderId" : this.orderId
-        }
-
-        console.log(this.json);
-        this.peopleHttp.addPeople(this.json).subscribe(
-          (response) => {
-            console.log("User Successfully Created");
-            console.log(response);
-            this.router.navigateByUrl("/login");
-          }
-        );
+    this.json = 
+    {
+      "firstname" : this.firstName,
+      "lastname" : this.lastName,
+      "email" : this.email,
+      "password" : this.password,
+      "address1" : this.address1,
+      "address2" : this.address2,
+      "city" : this.city,
+      "state" : this.state,
+      "zip" : this.zip,
+      "phone" : this.phone,
+      "title" : this.title,
+      "orderId" : this.orderId
     }
+
+    console.log(this.json);
+    this.peopleHttp.addPeople(this.json).subscribe(
+      (response) => {
+        console.log("User Successfully Created");
+        console.log(response);
+        this.router.navigateByUrl("/login");
+      }
+    );
   }
 
 }

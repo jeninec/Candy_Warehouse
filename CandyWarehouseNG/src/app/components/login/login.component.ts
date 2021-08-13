@@ -11,18 +11,12 @@ export class LoginComponent implements OnInit {
   constructor(private loginServ: LoginService) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem("title") == null){
-      this.notLoggedIn = true;
-    } else {
-      this.notLoggedIn = false;
-    }
   }
   
   email: string = '';
   password: string = '';
   responseMessage: string = '';
  
-  notLoggedIn: boolean = true;
 
   login() {
 

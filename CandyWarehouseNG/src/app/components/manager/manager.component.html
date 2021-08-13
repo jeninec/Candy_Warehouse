@@ -1,42 +1,41 @@
 <h1>Manager Page</h1>
 
 <!-- Toggle the display-->
-<button id="employeesButton" class="viewButtons" class="btn btn-secondary" (click)="displayEmployees()" type="checkbox" >Show Employees</button>
-<button id="itemButton" class="viewButtons" class="btn btn-secondary" (click)="displayItems()" type="checkbox" >Show Items</button>
-<button id="orderButton" class="viewButtons" class="btn btn-secondary" (click)="displayOrders()" type="checkbox" >Show Orders</button>
-<button id="addItemButton" class="viewButtons" class="btn btn-secondary" *ngIf="showItems" (click)="addItemMenu()" type="checkbox" >Add Item</button>
+<button class="viewButtons" (click)="displayEmployees()" type="checkbox" >Show Employees</button>
+<button class="viewButtons" (click)="displayItems()" type="checkbox" >Show Items</button>
+<button class="viewButtons" (click)="displayOrders()" type="checkbox" >Show Orders</button>
+<button class="viewButtons" *ngIf="showItems" (click)="addItemMenu()" type="checkbox" >Add Item</button>
 
 <div *ngIf="showAddMenu">
-    <div class="card">
     <fieldset>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Item Name: </span>
-            <input id="itemNameInput" type="text" class="form-control" [(ngModel)]="itemName">
+            <input type="text" class="form-control" [(ngModel)]="itemName">
             <span class="input-group-text">Category: </span>
-            <input id="itemCategoryInput" type="text" class="form-control" [(ngModel)]="itemCategory">
+            <input type="text" class="form-control" [(ngModel)]="itemCategory">
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Price: </span>
-            <input id="itemPriceInput" type="number" class="form-control" [(ngModel)]="itemPrice">
+            <input type="number" class="form-control" [(ngModel)]="itemPrice">
             <span class="input-group-text">Quantity: </span>
-            <input id="itemQuantityInput" type="number" class="form-control" [(ngModel)]="itemQuantity">
+            <input type="number" class="form-control" [(ngModel)]="itemQuantity">
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Desciption: </span>
-            <textarea id="itemDescriptionInput" type="text" class="form-control" rows=3 [(ngModel)]="itemDescription"></textarea>
+            <textarea type="text" class="form-control" rows=3 [(ngModel)]="itemDescription"></textarea>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Image Source: </span>
-            <input id="itemImgSrcInput" type="text" class="form-control" [(ngModel)]="itemImgSrc">
+            <input type="text" class="form-control" [(ngModel)]="itemImgSrc">
         </div>
 
-        <button id="submitButton" class="btn btn-primary" (click)="submitItem()">Submit Item</button>
+        <button (click)="submitItem()">Submit Item</button>
     </fieldset>
-    </div>
+      
 </div>
 
 <div *ngIf="showItems">
-    <div class="card">
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -59,11 +58,11 @@
             </tr>
         </tbody>
     </table>
-    </div>
+
 </div>
 
 <div *ngIf="showEmps">
-    <div class="card">
+    
     <table class="table table-striped">
         <thead>
             <tr>
@@ -94,11 +93,10 @@
             </tr>
         </tbody>
     </table>
-</div>
+
 </div>
 
 <div *ngIf="showOrders">
-    <div class="card">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -119,5 +117,4 @@
             </tr>
         </tbody>
     </table>
-</div>
 </div>

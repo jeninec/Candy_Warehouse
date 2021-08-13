@@ -6,39 +6,39 @@
         <span class="input-group-text">ID: </span>
         <input type="text" class="form-control" [(ngModel)]="getPeople().id" readonly>
         <span class="input-group-text">First Name: </span>
-        <input id="firstNameInput" type="text" class="form-control" [(ngModel)]="getPeople().firstname">
+        <input type="text" class="form-control" [(ngModel)]="getPeople().firstname">
         <span class="input-group-text">Last Name: </span>
-        <input id="lastNameInput" type="text" class="form-control" [(ngModel)]="getPeople().lastname">
+        <input type="text" class="form-control" [(ngModel)]="getPeople().lastname">
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">Email: </span>
-        <input id="emailInput" type="text" class="form-control" [(ngModel)]="getPeople().email">
+        <input type="text" class="form-control" [(ngModel)]="getPeople().email">
         <span class="input-group-text">Password: </span>
-        <input id="passwordInput" type="text" class="form-control" [(ngModel)]="getPeople().password">
+        <input type="text" class="form-control" [(ngModel)]="getPeople().password">
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">Address 1: </span>
-        <input id="address1Input" type="text" class="form-control" [(ngModel)]="getPeople().address1">
+        <input type="text" class="form-control" [(ngModel)]="getPeople().address1">
         <span class="input-group-text">Address 2: </span>
-        <input id="address2Input" type="text" class="form-control" [(ngModel)]="getPeople().address2">
+        <input type="text" class="form-control" [(ngModel)]="getPeople().address2">
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">City: </span>
-        <input id="cityInput" type="text" class="form-control" [(ngModel)]="getPeople().city">
+        <input type="text" class="form-control" [(ngModel)]="getPeople().city">
         <span class="input-group-text">State: </span>
-        <input id="stateInput" type="text" class="form-control" [(ngModel)]="getPeople().state">
+        <input type="text" class="form-control" [(ngModel)]="getPeople().state">
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">Zip: </span>
-        <input id="zipInput" type="text" class="form-control" [(ngModel)]="getPeople().zip">
+        <input type="text" class="form-control" [(ngModel)]="getPeople().zip">
         <span class="input-group-text">Phone: </span>
-        <input id="phoneInput" type="text" class="form-control" [(ngModel)]="getPeople().phone">
+        <input type="text" class="form-control" [(ngModel)]="getPeople().phone">
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">Title: </span>
-        <input id="titleInput" type="text" class="form-control" [(ngModel)]="getPeople().title">
+        <input type="text" class="form-control" [(ngModel)]="getPeople().title">
     </div>
 </div>
 
-<button id="updateButton" class="userManipulation" (click)="updateUser()">Update User</button>
-<button id="deleteButton" class="userManipulation" (click)="deleteUser()">Delete User</button>
+<button class="userManipulation" (click)="updateUser()">Update User</button>
+<button class="userManipulation" (click)="deleteUser()">Delete User</button>

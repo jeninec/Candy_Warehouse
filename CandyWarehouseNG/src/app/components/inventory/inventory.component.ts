@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpAllCandyService } from 'src/app/services/http-all-candy.service';
 import { Item } from 'src/app/models/Item';
-import { HttpOrderService } from 'src/app/services/http-order.service';
-import { Order } from 'src/app/models/Order';
-import { Observable } from 'rxjs';
-import { HttpPeopleService } from 'src/app/services/http-people.service';
 
 @Component({
   selector: 'app-inventory',
@@ -13,7 +9,7 @@ import { HttpPeopleService } from 'src/app/services/http-people.service';
 })
 export class InventoryComponent implements OnInit {
 
-  constructor(private allCandy : HttpAllCandyService, private newOrder : HttpOrderService, private putPerson : HttpPeopleService) { }
+  constructor(private allCandy : HttpAllCandyService) { }
 
   ngOnInit(): void {
     this.getAllCandy();
@@ -92,7 +88,7 @@ export class InventoryComponent implements OnInit {
       (response) => {
         response.qtyOrdered = this.value[num];
         this.orderList.push(response);
-        const ol = JSON.stringify(this.orderList);
+        let ol = JSON.stringify(this.orderList);
         localStorage.setItem('cart', ol);
         this.show[num] = trig;
         window.setTimeout(()=>{
@@ -132,8 +128,8 @@ export class InventoryComponent implements OnInit {
     localStorage.setItem('cart', ol);
     this.compute();
   }
-
   getAllCandy() {
+
     this.allCandy.getAllCandy().subscribe(
       (response) => {
         console.log(response)
@@ -142,37 +138,4 @@ export class InventoryComponent implements OnInit {
     )
   }
 
-  buildOrder: Order = new Order(0, 0, "", "", false, []);
-  // Starts a new order with whatever is in the cart and updates the user with said order
-  checkoutOrder() {
-    this.buildOrder.itemId = this.orderList
-    this.newOrder.addOrder(this.buildOrder).subscribe(
-      (response) => {
-        this.buildOrder = response;
-        console.log(response);
-        this.addOrderToPerson();
-      }
-    ) 
-  }
-
-  email: string = JSON.stringify(localStorage.getItem("email"));
-  emailNoQuotes = this.email.replace(/"/g, '');
-  // Updates the user with their order
-  addOrderToPerson() {
-    console.log(this.emailNoQuotes);
-    this.putPerson.getPersonByEmail(this.emailNoQuotes).subscribe(
-      (response) => {
-        let person = response;
-        person.orderId.push(this.buildOrder)
-        this.putPerson.updatePeople(person).subscribe(
-          (updatedPerson) => {
-            console.log(updatedPerson)
-          }
-        )
-      }
-    )
-
-  }
 }
-  
-

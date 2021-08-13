@@ -15,7 +15,6 @@ html {
 .column {
   float: left;
   width: 30%;
-  height: 500px;
   margin-bottom: 16px;
   padding: 0 8px;
 }
@@ -29,7 +28,7 @@ html {
 .about-section {
   padding: 50px;
   text-align: center;
-  background-color: slateblue;
+  background-color: #1b6b79;
   color: white;
 }
 
@@ -45,25 +44,6 @@ html {
 
 .title {
   color: grey;
-}
-
-.row {
-  margin: auto;
-  padding-left: 5em;
-}
-
-img {
-  border-radius: 4px;
-  height: auto;
-}
-
-h2 {
-  color: darkslateblue;
-  margin: 0.8em 0em;
-}
-
-.container p {
-  color: darkslateblue;
 }
 
 .button {
