@@ -109,3 +109,117 @@
         </div>
     </div>
 
+<div *ngIf="display4">
+    <hr>
+    <div id="cont">
+        <div (click)= "onPress3()" id="backdiv">
+        <img src="../../../assets/images/clipart4237996.png" id="back">
+        <a class="aa">  back to cart</a>
+        </div>
+        <div id="checkout2">
+            <img src="" id="cart2">
+            <a class="aa"></a>
+            </div>
+
+            <div id="yourcart">
+                <h3>Check Out</h3>
+            </div>
+    </div>
+    <hr>
+    <div id="contstuff">
+        <div id="shippingA">
+            <h3>Shipping Address</h3>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">First Name: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.firstname">
+                <span class="input-group-text">Last Name: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.lastname">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Address1: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.address1">
+                <span class="input-group-text">Address2: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.address2">
+            </div>
+            <div class="input-group mb-3">    
+                <span class="input-group-text" id="basic-addon1">City: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.city">
+                <span class="input-group-text">State: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.state">
+                <span class="input-group-text">Zip: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.zip">
+            </div>
+        </div>
+
+        <div id="billingA">
+            <h3 id="sa">Billing Address</h3>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">First Name: </span>
+                <input type="text" class="form-control" [ngModel]="user.firstname">
+                <span class="input-group-text">Last Name: </span>
+                <input type="text" class="form-control" [ngModel]="user.lastname">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Address1: </span>
+                <input type="text" class="form-control" [ngModel]="user.address1">
+                <span class="input-group-text">Address2: </span>
+                <input type="text" class="form-control" [ngModel]="user.address2">
+            </div>
+            <div class="input-group mb-3">    
+                <span class="input-group-text" id="basic-addon1">City: </span>
+                <input type="text" class="form-control" [ngModel]="user.city">
+                <span class="input-group-text">State: </span>
+                <input type="text" class="form-control" [ngModel]="user.state">
+                <span class="input-group-text">Zip: </span>
+                <input type="text" class="form-control" [ngModel]="user.zip">
+            </div>
+        </div>
+        <div id="pay-bill">
+            <h3>Payment Method</h3>
+            <label id="ct">Card Type:</label>
+            <select id="card_type">
+                <option value="0">- select -</option>
+                <option value="1">MasterCard</option>
+                <option value="2">Visa</option>
+                <option value="3">Discover</option>
+                <option value="4">American Express</option>
+            </select>
+            <span id="cn">Card Number:</span>
+            <input type="text">
+            <span id="cvv">CVV:</span>
+            <input type="text" id="cv">
+            <br><br>
+            <span id="ex">Expiration Date:</span>
+            <input type="text" id="exi">
+        </div>
+
+        <div id="delivery">
+            <h3>Delivery</h3>
+            <label id="ct">Choose a delivery option:</label>
+            <select id="card_type">
+                <option value="0">- select -</option>
+                <option value="1">UPS</option>
+                <option value="2">FedEx</option>
+                <option value="3">USPS</option>
+            </select>
+            <br><br><br><br>
+        </div>
+    </div>
+
+<div id="place">
+    <button type="button" class="btn btn-warning" (click) = "checkoutOrder()">place your order</button>
+<br><br>
+
+    <h3>Order Summery</h3>
+    <span>Items: {{formatter.format(total)}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span>Shipping and handling: {{formatter.format(sh)}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span>Total before tax: {{formatter.format(tbt)}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span>Estimated tax to be collected: {{formatter.format(tax)}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <h4>Order total: {{formatter.format(newtotal)}}</h4>
+
+</div>
+
+</div>
+
+
+

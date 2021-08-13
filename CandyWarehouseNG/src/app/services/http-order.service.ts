@@ -18,15 +18,13 @@ export class HttpOrderService {
   }
 
   addOrder(order : Order) : Observable<Order> {
-    return this.http.post<Order>('http://localhost:8080/orders',Order,{ headers: this.postHeaders });
+    return this.http.post<Order>('http://localhost:8080/orders', order, { headers: this.postHeaders });
   }
-  deleteOrder(order:Order) : Observable<Order> { 
-    
-    return this.http.put<Order>('http://localhost:8080/orders'+  Order ,Order,{ headers: this.postHeaders });
+  updateOrder(order : Order) : Observable<Order> { 
+    return this.http.put<Order>(`http://localhost:8080/orders/${order.id}` , order, { headers: this.postHeaders });
   }
-  updateOrder(orderU:any) : Observable<Object> { 
-    console.log(orderU.id);
-    return this.http.put<Object>('http://localhost:8080/orders/'+  orderU.id ,orderU,{ headers: this.postHeaders });
-  }
+
+
+
 
 }

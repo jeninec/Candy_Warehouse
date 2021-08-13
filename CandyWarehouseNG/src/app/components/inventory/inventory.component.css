@@ -120,3 +120,58 @@ text-align: center;
 .desdiv{
   height: 15%;
 }
+
+
+#shippingA{
+  padding: 10px;
+  
+  float: left;
+  width: 50%;
+}
+
+#billingA{
+  padding: 10px;
+  
+  float: right;
+  width: 50%;
+}
+
+#pay-bill{
+  padding: 10px;
+  
+  float: left;
+  width: 50%;
+}
+
+#delivery{
+  padding: 10px;
+  
+  float: right;
+  width: 50%;
+}
+
+#place{
+  text-align: center;
+  clear: both;
+}
+
+#ct{
+  padding-right: 10px;
+}
+
+#cn{
+  padding: 10px;
+}
+
+#cv{
+  width: 10%;
+}
+
+#cvv{
+  padding: 10px;
+}
+
+#ex{
+  padding: 10px;
+}
+

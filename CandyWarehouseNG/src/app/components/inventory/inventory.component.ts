@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpAllCandyService } from 'src/app/services/http-all-candy.service';
 import { Item } from 'src/app/models/Item';
+import { HttpOrderService } from 'src/app/services/http-order.service';
+import { HttpPeopleService } from 'src/app/services/http-people.service';
+import { PeopleService } from 'src/app/services/people.service'
+import { People } from 'src/app/models/People';
+import { Order } from 'src/app/models/Order';
 
 @Component({
   selector: 'app-inventory',
@@ -9,7 +14,7 @@ import { Item } from 'src/app/models/Item';
 })
 export class InventoryComponent implements OnInit {
 
-  constructor(private allCandy : HttpAllCandyService) { }
+  constructor(private allCandy : HttpAllCandyService,  private peopleHttp: HttpPeopleService, private newOrder : HttpOrderService, private peopleServ: PeopleService) { }
 
   ngOnInit(): void {
     this.getAllCandy();
@@ -33,12 +38,13 @@ export class InventoryComponent implements OnInit {
 } 
   }
 
+
   
   itemList: Item[] = [];
   itemList2: Item[] = [];
   orderList: Item[] =[];
   itemTotals: number[] = [];
-  
+  user: People = new People(0, "", "", "", "", "", "", "" , "", "", "", "", []);
 
   value: number[] = [];
   total = 0;
@@ -46,14 +52,21 @@ export class InventoryComponent implements OnInit {
   display = false;
   display2 = true;
   display3 = false;
+  display4 = false;
   show: boolean[] = [];
   sw = true;
   sw2 = false;
+  sw3 = true;
+  sh = 5.75;
+  tbt = 0;
+  tax = 0;
+  newtotal = 0;
   
   onPress(cat: any) {
     this.display = true;
     this.display2 = false;
     this.display3 = false;
+    this.display4 = false;
 
 
     this.allCandy.getCat(cat).subscribe(
@@ -72,6 +85,7 @@ export class InventoryComponent implements OnInit {
     this.display = false;
     this.display2 = true;
     this.display3 = false;
+    this.display4 = false;
   }
 
   onPress3() {
@@ -79,7 +93,8 @@ export class InventoryComponent implements OnInit {
     this.display = false;
     this.display2 = false;
     this.display3 = false;
-    
+    this.display4 = true;
+    this.displayInfo();
   }
 
 
@@ -115,6 +130,10 @@ export class InventoryComponent implements OnInit {
     this.display = false;
     this.display2 = false;
     this.display3 = true;
+    this.display4 = false;
+    this.tbt = this.total + this.sh;
+    this.tax = this.total * 0.06;
+    this.newtotal = this.tbt + this.tax;
   }
 
   formatter = new Intl.NumberFormat('en-US', {
@@ -128,6 +147,71 @@ export class InventoryComponent implements OnInit {
     localStorage.setItem('cart', ol);
     this.compute();
   }
+
+  displayInfo() {
+
+    var email = localStorage.getItem("email");
+     
+
+    if (email != null){
+      this.peopleHttp.getPersonByEmail(email.toString()).subscribe(
+    
+      (response) => {
+        console.log(response);
+        this.user = response;
+        if(this.user.address2 == ""){
+          this.sw3 = false;
+        }
+      }
+
+      )
+    }
+    
+  }
+
+
+  updateEmp() {
+    console.log(this.peopleServ.people);
+
+  this.peopleHttp.updatePeople(this.peopleServ.people).subscribe(
+    (response) => {
+      alert("User Successfully Updated");
+    }
+  );
+}
+
+buildOrder: Order = new Order(0, 0, "", "", false, []);
+// Starts a new order with whatever is in the cart and updates the user with said order
+checkoutOrder() {
+  this.buildOrder.itemId = this.orderList;
+  this.newOrder.addOrder(this.buildOrder).subscribe(
+    (response) => {
+      this.buildOrder = response;
+      console.log(response);
+      this.addOrderToPerson();
+    }
+  ) 
+}
+
+email: string = JSON.stringify(localStorage.getItem("email"));
+emailNoQuotes = this.email.replace(/"/g, '');
+// Updates the user with their order
+addOrderToPerson() {
+  console.log(this.emailNoQuotes);
+  this.peopleHttp.getPersonByEmail(this.emailNoQuotes).subscribe(
+    (response) => {
+      let person = response;
+      person.orderId.push(this.buildOrder)
+      this.peopleHttp.updatePeople(person).subscribe(
+        (updatedPerson) => {
+          console.log(updatedPerson)
+        }
+      )
+    }
+  )
+
+}
+  
   getAllCandy() {
 
     this.allCandy.getAllCandy().subscribe(

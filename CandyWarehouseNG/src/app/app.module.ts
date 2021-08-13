@@ -18,6 +18,7 @@ import { AboutPageComponent } from './components/about-page/about-page.component
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { RegisterComponent } from './components/register/register.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { RegisterComponent } from './components/register/register.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
