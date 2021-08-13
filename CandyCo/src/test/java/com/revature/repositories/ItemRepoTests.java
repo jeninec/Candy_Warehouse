@@ -30,7 +30,7 @@ public class ItemRepoTests {
 	@Test
 	@Rollback
 	void addItem() {
-		Item cand = new Item("Double bubble", "bubble gum", 1.00, 1, "good gum", "/images/double-bubble.jpg", 0);
+		Item cand = new Item("Double bubble", "bubble gum", 1.00, 1, "good gum", "/images/double-bubble.jpg");
 		Assertions.assertEquals(0, cand.getId());
 		
 		cand = ir.save(cand);

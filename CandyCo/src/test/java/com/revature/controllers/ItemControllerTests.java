@@ -35,7 +35,7 @@ public class ItemControllerTests {
 	
 	@Test
 	void getAllItems() throws Exception {
-		Item item = new Item("Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0);
+		Item item = new Item("Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg");
 		List<Item> itemList = new ArrayList<Item>();
 		itemList.add(item);
 		
@@ -47,7 +47,7 @@ public class ItemControllerTests {
 	
 	@Test
 	void getItemById() throws Exception {
-		Item item = new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0);
+		Item item = new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg");
 		
 		Mockito.when(is.getItem(1)).thenReturn(item);
 		
@@ -57,7 +57,7 @@ public class ItemControllerTests {
 	
 	@Test
 	void getItemBySearch() throws Exception {
-		Item item = new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0);
+		Item item = new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg");
 		
 		Mockito.when(is.getItem(1)).thenReturn(item);
 		
@@ -68,7 +68,7 @@ public class ItemControllerTests {
 	
 	@Test
 	void getItemByCategory() throws Exception {
-		Item item = new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0);
+		Item item = new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg");
 		
 		Mockito.when(is.getItem(1)).thenReturn(item);
 		
@@ -79,9 +79,9 @@ public class ItemControllerTests {
 	
 	@Test
 	void addItem() throws Exception {
-		Item item = new Item("Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0);
+		Item item = new Item("Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg");
 		
-		Mockito.when(is.addItem(item)).thenReturn(new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0));
+		Mockito.when(is.addItem(item)).thenReturn(new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg"));
 	
 		ResultActions ra = mvc.perform(post("/items")
 				  .content(asJsonString(item))
@@ -92,9 +92,9 @@ public class ItemControllerTests {
 	
 	@Test
 	void updateItem() throws Exception {
-		Item item = new Item("Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0);
+		Item item = new Item("Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg");
 		
-		Mockito.when(is.updateItem(item)).thenReturn(new Item(1, "BimUpdated", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0));
+		Mockito.when(is.updateItem(item)).thenReturn(new Item(1, "BimUpdated", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg"));
 	
 		ResultActions ra = mvc.perform(put("/items/1")
 				  .content(asJsonString(item))

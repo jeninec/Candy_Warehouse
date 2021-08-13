@@ -115,7 +115,7 @@ export class ManagerComponent implements OnInit {
     console.log(this.itemPrice);
 
     this.itemHttp.addCandy(new Item(0, this.itemName, this.itemCategory, this.itemPrice,
-      this.itemQuantity, this.itemDescription, this.itemImgSrc, this.itemQtyOrdered)).subscribe(
+      this.itemQuantity, this.itemDescription, this.itemImgSrc)).subscribe(
       (response) => {
         console.log(response);
         this.itemList.push(response);

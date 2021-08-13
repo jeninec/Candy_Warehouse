@@ -26,8 +26,6 @@ public class Item {
 	private String description;
 	@Column(name="img_src")
 	private String imgSrc;
-	@Column(name="qty_ordered")
-	private int qtyOrdered;
 	
 
 	public Item() {
@@ -35,8 +33,7 @@ public class Item {
 	}
 
 
-	public Item(int id, String name, String catagory, double price, int qty, String description, String imgSrc,
-			int qtyOrdered) {
+	public Item(int id, String name, String catagory, double price, int qty, String description, String imgSrc) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -45,12 +42,10 @@ public class Item {
 		this.qty = qty;
 		this.description = description;
 		this.imgSrc = imgSrc;
-		this.qtyOrdered = qtyOrdered;
 	}
 
 
-	public Item(String name, String catagory, double price, int qty, String description, String imgSrc,
-			int qtyOrdered) {
+	public Item(String name, String catagory, double price, int qty, String description, String imgSrc) {
 		super();
 		this.name = name;
 		this.catagory = catagory;
@@ -58,7 +53,6 @@ public class Item {
 		this.qty = qty;
 		this.description = description;
 		this.imgSrc = imgSrc;
-		this.qtyOrdered = qtyOrdered;
 	}
 
 
@@ -132,23 +126,13 @@ public class Item {
 	}
 
 
-	public int getQtyOrdered() {
-		return qtyOrdered;
-	}
-
-
-	public void setQtyOrdered(int qtyOrdered) {
-		this.qtyOrdered = qtyOrdered;
-	}
-
-
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", name=" + name + ", catagory=" + catagory + ", price=" + price + ", qty=" + qty
-				+ ", description=" + description + ", imgSrc=" + imgSrc + ", qtyOrdered=" + qtyOrdered + "]";
+				+ ", description=" + description + ", imgSrc=" + imgSrc + "]";
 	}
 
 
-	
+
 	
 }

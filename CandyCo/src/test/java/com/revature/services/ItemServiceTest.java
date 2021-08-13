@@ -25,10 +25,10 @@ public class ItemServiceTest {
 	
 	@Test
 	void addItem() {
-		Item item = new Item("Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0);
+		Item item = new Item("Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg");
 		
 		Mockito.when(ir.save(item)).thenReturn(new Item(1, item.getName(), item.getCatagory(), item.getPrice(),
-				item.getQty(), item.getDescription(), item.getImgSrc(), item.getQtyOrdered()));
+				item.getQty(), item.getDescription(), item.getImgSrc()));
 		
 		item = is.addItem(item);
 		
@@ -38,7 +38,7 @@ public class ItemServiceTest {
 	
 	@Test
 	void getItem() {
-		Item item = new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0);
+		Item item = new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg");
 		Optional<Item> optionI = Optional.of(item);
 		
 		Mockito.when(ir.findById(item.getId())).thenReturn(optionI);
@@ -48,7 +48,7 @@ public class ItemServiceTest {
 	
 	@Test
 	void getItemByName() {
-		Item item = new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0);
+		Item item = new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg");
 		
 		Mockito.when(ir.findByName(item.getName())).thenReturn(item);
 			
@@ -58,7 +58,7 @@ public class ItemServiceTest {
 	
 	@Test
 	void getAllItems() {
-		Item item = new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0);
+		Item item = new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg");
 		
 		List<Item> items = new ArrayList<Item>();
 		items.add(item);
@@ -72,9 +72,9 @@ public class ItemServiceTest {
 	
 	@Test
 	void updateItem() {
-		Item item = new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0);
+		Item item = new Item(1, "Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg");
 		Mockito.when(ir.save(item)).thenReturn(new Item(1, "BimUpdated", "hard candy", 1.50, 50,
-				"Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0));
+				"Bim bam bop my brotha", "../../../assets/images/test.jpeg"));
 		
 		item = is.updateItem(item);
 		Assertions.assertEquals(1, item.getId());
@@ -83,7 +83,7 @@ public class ItemServiceTest {
 	
 	@Test
 	void deleteItem() {
-		Item item = new Item("Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg", 0);
+		Item item = new Item("Bim", "hard candy", 1.50, 50,  "Bim bam bop my brotha", "../../../assets/images/test.jpeg");
 		
 		Mockito.doThrow(IllegalArgumentException.class).when(ir).deleteById(item.getId());
 		
