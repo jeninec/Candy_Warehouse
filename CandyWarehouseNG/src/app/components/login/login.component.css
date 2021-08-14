@@ -1,5 +1,11 @@
 #loginInput {
-    margin-top: 5%;
     text-align: center;
     width: 350px;
+}
+
+.page-header {
+    padding: 10px;
+    text-align: center;
+    color: black;
+    margin-bottom: 1em;
 }

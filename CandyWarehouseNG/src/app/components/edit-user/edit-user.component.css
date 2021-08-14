@@ -12,13 +12,32 @@
     margin: 1em;
 }
 
+.page-header {
+    padding: 10px;
+    text-align: center;
+    background-color: #ad1919;
+    color: rgb(255, 255, 255);
+    margin-bottom: 1em;
+}
+
 .userInformation{
     width: 50%;
     border: 1px solid black;
     padding: 1em;
-    margin: 1em;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 .userManipulation{
     margin: 1em;
+}
+
+#updateButton{
+    background-color: lightyellow;
+}
+
+#deleteButton{
+    background-color: red;
+    color: white;
 }

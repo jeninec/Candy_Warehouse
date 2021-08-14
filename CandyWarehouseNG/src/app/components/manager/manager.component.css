@@ -2,9 +2,33 @@
     margin-left: 1em;
 }
 
+#orderTable{
+    padding: 1em;
+}
+
+#empTable{
+    padding: 1em;
+}
+
+#itemTable{
+    padding: 1em;
+}
+
+.manager-header {
+    padding: 10px;
+    text-align: center;
+    background-color: #1c19ad;
+    color: rgb(255, 255, 255);
+    margin-bottom: 1em;
+}
+
 fieldset {
     width: 50%;
     border: solid black;
     margin: 5px 5px;
     padding: 1em;
+}
+
+#submitButton{
+    background-color: lightgreen;
 }

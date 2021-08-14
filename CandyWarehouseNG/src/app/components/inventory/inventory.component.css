@@ -21,6 +21,8 @@
   padding: 20px;
   font-size: 30px;
   text-align: center;
+  margin: 0.5em;
+  border-radius: 16px;
 }
 #back {
   width: 50px;

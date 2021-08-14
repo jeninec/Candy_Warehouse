@@ -1,1 +1,17 @@
 .userValue:hover {background-color:#6e6e6e44;}
+
+.admin-header {
+    padding: 10px;
+    text-align: center;
+    background-color: #ad1919;
+    color: rgb(255, 255, 255);
+    margin-bottom: 1em;
+}
+
+#userTable{
+    padding: 1em;
+}
+
+.nameInputs{
+    margin: 5px;
+}

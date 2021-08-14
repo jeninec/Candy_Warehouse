@@ -1,13 +1,16 @@
-<h1>total orders</h1>
-<br>
+<div class="page-header">
+    <h1>Employee Page</h1>
+</div>
+
+<h2>View Orders</h2>
 <table class="table table-striped">
     <thead>
     <tr>
         <th scope="col">ID</th>
-        <th scope="col">total_price</th>
-        <th scope="col">date_ordered</th>
-        <th scope="col">shiping_type</th>
-        <th scope="col">shipped</th>
+        <th scope="col">Total Price</th>
+        <th scope="col">Date Ordered</th>
+        <th scope="col">Shipping Type</th>
+        <th scope="col">Shipped</th>
         <th scope="col">Items</th>
     </tr>
     </thead>
@@ -25,7 +28,7 @@
                     <span >Show Items</span>
                     <ul *ngFor="let item of order.itemId;let i=index;">
                       <li id ="itemNum" style="background-color:gold;">item number {{i+1}}</li>
-                      <li>catagory: {{item.catagory}}</li>
+                      <li>category: {{item.catagory}}</li>
                       <!-- <li>description: {{item.description}}</li> -->
                       <li>name: {{item.name}}</li>
                       <li>qty :{{item.qty}}</li>
@@ -34,7 +37,7 @@
                 </li>
             </ul>
         </td>
-        <th><button (click)="updateOrder(OrdersList[i])">shipped</button></th>
+        <th><button (click)="updateOrder(OrdersList[i])">Complete Order</button></th>
     </tr>
     </tbody>
 </table>
