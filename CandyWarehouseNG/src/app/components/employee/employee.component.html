@@ -17,7 +17,7 @@
     <tbody>
     <tr *ngFor="let order of OrdersList;let i=index;">
         <td>{{order.id}}</td>
-        <td>{{order.totalPrice}}</td>
+        <td>{{formatter.format(order.totalPrice)}}</td>
         <td>{{order.dateOrdered}}</td>      
         <td>{{order.shippingType}}</td>
         <td>{{order.shipped}}</td>

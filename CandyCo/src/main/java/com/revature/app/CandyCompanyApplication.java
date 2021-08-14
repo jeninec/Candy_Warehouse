@@ -57,8 +57,8 @@ public class CandyCompanyApplication {
 			pr.save(new Person("Vera", "Sheffield", "pass", "vshef@gmail.com", "4950 Bond Street", null, "Providence", "RI", "02908", "401-479-0607", "manager", null));
 			pr.save(new Person("Morgan", "West", "pass", "mwest@gmail.com", "1120 Rockford Mountain Lane", null, "Princeton", "NC", "27569", "919-936-1906", "admin", null));
 		
-			ir.save(new Item("twix", "chocolate", 1.60, 50,  "crunchy flavorful cookie, delicious chewy caramel, and smooth creamy chocolate", "../../../assets/images/twix.jpeg"));
-			ir.save(new Item("kitkat", "chocolate", 1.85, 50, "chocolate-covered wafer bar", "../../../assets/images/kitkat.jpeg"));
+			ir.save(new Item("twix", "chocolate", 1.60, 49,  "crunchy flavorful cookie, delicious chewy caramel, and smooth creamy chocolate", "../../../assets/images/twix.jpeg"));
+			ir.save(new Item("kitkat", "chocolate", 1.85, 48, "chocolate-covered wafer bar", "../../../assets/images/kitkat.jpeg"));
 			ir.save(new Item("snickers", "chocolate", 2.00, 50, "nougat topped with caramel and peanuts that has been enrobed in milk chocolate", "../../../assets/images/snickers.jpeg"));
 			ir.save(new Item("milky way", "chocolate", 1.35, 30, "creamy caramel and smooth nougat covered in rich milk chocolate", "../../../assets/images/milky_way.jpeg"));
 			ir.save(new Item("gummy bears", "gummies", 1.70, 30, "small, fruit gum candies shaped in the form of a bear", "../../../assets/images/gummy_bears.jpeg"));
@@ -81,7 +81,8 @@ public class CandyCompanyApplication {
 			List<Item> ord = new ArrayList<Item>();
 			ord.add(is.getItem(1));
 			ord.add(is.getItem(2));
-			or.save(new Order(10.00, "01/21/21", "FEDEX", false, null, ord));
+			int[] intArray = new int[]{ 1,2 };
+			or.save(new Order(10.00, "8/14/2021, 5:18:10 PM", "FEDEX", false, intArray, ord));
 			System.out.println(ord);
 			
 		};
