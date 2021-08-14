@@ -115,13 +115,8 @@ export class InventoryComponent implements OnInit {
         console.log(this.qtyO);
         console.log(this.orderList);
 
-        response.qty = response.qty - this.value[num];
 
-        this.allCandy.updateCandy(response).subscribe(
-    (response) => {
-      console.log("updated item");
-    }
-  );
+
 
         window.setTimeout(()=>{
           this.show[num] = false;
@@ -221,6 +216,21 @@ email: string = JSON.stringify(localStorage.getItem("email"));
 emailNoQuotes = this.email.replace(/"/g, '');
 // Updates the user with their order
 addOrderToPerson() {
+  for (let index = 0; index < this.orderList.length; index++) {
+  this.allCandy.getCandyByName(this.orderList[index].name).subscribe(
+    (response) => {
+      response.qty = response.qty - this.qtyO[index];
+      this.allCandy.updateCandy(response).subscribe(
+  (response) => {
+    console.log("updated item");
+  }
+);
+
+
+    }
+  )
+  }
+
   localStorage.removeItem("qtyO");
   localStorage.removeItem("cart");
   console.log(this.emailNoQuotes);
