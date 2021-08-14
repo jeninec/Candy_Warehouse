@@ -1,4 +1,7 @@
-<h1>Edit User Page</h1>
+<div class="page-header">
+    <h1>Edit User Page</h1>
+</div>
+
 <a id = "adminLink" routerLink="/admin">Return to Admin</a>
 
 <div class="userInformation">
@@ -40,5 +43,5 @@
     </div>
 </div>
 
-<button class="userManipulation" (click)="updateUser()">Update User</button>
-<button class="userManipulation" (click)="deleteUser()">Delete User</button>
+<button id="updateButton" class="userManipulation" (click)="updateUser()">Update User</button>
+<button id="deleteButton" class="userManipulation" (click)="deleteUser()">Delete User</button>

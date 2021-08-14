@@ -3,8 +3,32 @@
     border: 1px solid black;
     padding: 1em;
     margin: 1em;
+    border-radius: 16px;
 }
 
+button {
+    color: #444444;
+    background: lightgreen;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+}
+
+button:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: rgb(4, 179, 4);
+}
+
+.page-header {
+    padding: 10px;
+    color: rgb(0, 0, 0);
+}
 .userManipulation{
-    margin: 1em;
+    margin-left: 1em;
+    margin-bottom: 1em;
 }

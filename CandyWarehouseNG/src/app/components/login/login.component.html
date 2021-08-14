@@ -2,14 +2,21 @@
 
 <div id="loginInput" class="d-grid gap-3 col-6 mx-auto text-center">
     
-    <input [(ngModel)]="email" id="inputEmail" type="text" class="form-control" placeholder="Email">
-    <br>
-    <input [(ngModel)]="password" id="inputPass" type="password" class="form-control" placeholder="Password">
-    <br>
+    <div class="page-header">
+        <h1>Login</h1>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input [(ngModel)]="email" id="inputEmail" type="text" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+        <input [(ngModel)]="password" id="inputPass" type="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+    </div>
     <a routerLink="/register">No account? Make one today!</a>
-    <button (click)="login()" id="loginButton" class="btn-light btn-lg" style="background-color: #6BBAA7; box-shadow: 0px 2px 2px 0px; width: 200px; margin-left: 20%;">Log in</button>
-    <br>
-    <button (click)="logout()" id="loginButton" class="btn-light btn-lg" style="background-color: #6BBAA7; box-shadow: 0px 2px 2px 0px; width: 200px; margin-left: 20%;">Log out</button>
+    <button (click)="login()" id="loginButton" class="btn-light btn-lg">Log in</button>
+    <button (click)="logout()" id="logoutButton" class="btn-light btn-lg">Log out</button>
     <br>
     <label id="loginResult" style="color: red">{{responseMessage}}</label>
 
