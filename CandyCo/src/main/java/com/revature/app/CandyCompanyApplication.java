@@ -1,8 +1,11 @@
 package com.revature.app;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -41,6 +44,11 @@ public class CandyCompanyApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CandyCompanyApplication.class, args);
+		
+		String driverPath = "C:\\Users\\stuar\\Desktop\\revature\\chromedriver_win32";
+		System.setProperty("webdriver.chrome.driver", driverPath);
+		
+		WebDriver driver = new ChromeDriver();
 	}
 
 	@Bean
