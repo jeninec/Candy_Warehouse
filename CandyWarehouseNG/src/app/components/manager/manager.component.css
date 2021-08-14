@@ -27,8 +27,41 @@ fieldset {
     border: solid black;
     margin: 5px 5px;
     padding: 1em;
+    border-radius: 16px;
 }
 
-#submitButton{
-    background-color: lightgreen;
+.viewButtons {
+    color: #444444;
+    background: lightgray;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+}
+
+.viewButtons:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: gainsboro;
+}
+
+#submitButton {
+    color: #444444;
+    background: lightgray;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+}
+
+#submitButton:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: gainsboro;
 }

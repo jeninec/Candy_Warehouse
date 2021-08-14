@@ -33,11 +33,38 @@
     margin: 1em;
 }
 
-#updateButton{
-    background-color: lightyellow;
+#updateButton {
+    color: #444444;
+    background: lightgray;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
 }
 
-#deleteButton{
-    background-color: red;
-    color: white;
+#updateButton:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: gainsboro;
+}
+
+#deleteButton {
+    color: #ffffff;
+    background: orangered;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+}
+
+#deleteButton:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #ffffff;
+    background: red;
 }
