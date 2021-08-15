@@ -42,9 +42,25 @@ html {
   display: table;
 }
 
-.title {
-  color: grey;
+.row {
+  margin: auto;
+  padding-left: 5em;
 }
+
+.container p {
+  color: darkslateblue;
+}
+
+.title {
+  color: darkslateblue;
+  margin: 0.8em 0em;
+}
+
+.abtImgs {
+  border-radius: 4px;
+  height: auto;
+}
+
 
 .button {
   border: none;
