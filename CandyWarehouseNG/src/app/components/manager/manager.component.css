@@ -1,5 +1,5 @@
 .viewButtons{
-    margin-left: 1em;
+    margin-left: 2em;
 }
 
 #orderTable{
@@ -17,7 +17,7 @@
 .manager-header {
     padding: 10px;
     text-align: center;
-    background-color: #1c19ad;
+    background-color: slateblue;
     color: rgb(255, 255, 255);
     margin-bottom: 1em;
 }
@@ -64,4 +64,8 @@ fieldset {
     box-shadow: 1px 1px 1px #EAEAEA;
     color: #333333;
     background: gainsboro;
+}
+
+.card {
+    margin: 0.8em 1em 1em;
 }
