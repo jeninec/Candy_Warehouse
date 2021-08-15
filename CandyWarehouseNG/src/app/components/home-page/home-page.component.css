@@ -8,11 +8,16 @@
     margin: 2em;
 }
 
+.row a {
+    background-color: khaki;
+    color:white;
+}
+
 .card-title {
     color: darkslateblue;
     margin: 0.8em 0em;
 }
 
 #home-card {
-    background-color: #C2E8FC;
+    background-color: slateblue;
 }
