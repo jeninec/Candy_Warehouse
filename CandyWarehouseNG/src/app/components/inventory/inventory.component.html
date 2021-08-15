@@ -219,5 +219,43 @@
 
 </div>
 
+<div *ngIf="display5">
+<div id = "receipt">
+    <br>    
+<h3>Your Receipt</h3>
+<p>Order Number: {{bo.id}}</p>
+<p>Order Date: {{bo.dateOrdered}}</p>
+<h4>Shipping Address</h4> 
+<p>{{per.firstname}} {{per.lastname}}</p>
+<p>{{per.address1}}</p>
+<p *ngIf = "sw4">{{per.address2}}</p> 
+<p>{{per.city}}, {{per.state}} {{per.zip}}</p> 
+
+<div id="inventory" class="table table-info table-bordered" id="center">
+    <h2 style="padding: 10px;" *ngIf="orderList.length > 0" class="center">Items Ordered</h2>
+    <table style="width: 100%;" *ngIf="orderList.length > 0" class="center">
+        <tr>
+            <th>Candy Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Price Each</th>
+            <th>Items Price</th>
+        </tr>
+        <tr *ngFor="let item of orderList; let i = index">
+            <td>{{item.name}}</td>
+            <td>{{item.catagory}}</td>
+            <td>{{qtyO[i]}}</td>
+            <td>{{formatter.format(item.price)}}</td>
+            <td>{{formatter.format(itemTotals[i])}}</td> 
+        </tr>
+    </table>
+    <h2 style="padding: 10px;" *ngIf="orderList.length > 0" class="center">Total: {{formatter.format(total)}}</h2>
+</div>     
+    
+</div>
+
+<p id="final">We will let you know by email when your order has been shipped</p>
+
+</div>
 
 

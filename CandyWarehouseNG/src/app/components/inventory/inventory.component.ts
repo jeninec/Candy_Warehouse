@@ -55,14 +55,18 @@ export class InventoryComponent implements OnInit {
   display2 = true;
   display3 = false;
   display4 = false;
+  display5 = true;
   show: boolean[] = [];
   sw = true;
   sw2 = false;
   sw3 = true;
+  sw4 = false;
   sh = 5.75;
   tbt = 0;
   tax = 0;
   newtotal = 0;
+  bo: Order = new Order(0,0,"","",false,[],[]);
+  per: People = new People(0, "", "", "", "", "", "", "" , "", "", "", "", []);
 
   options = '';
   
@@ -71,6 +75,7 @@ export class InventoryComponent implements OnInit {
     this.display2 = false;
     this.display3 = false;
     this.display4 = false;
+    this.display5 = false;
 
 
     this.allCandy.getCat(cat).subscribe(
@@ -90,6 +95,7 @@ export class InventoryComponent implements OnInit {
     this.display2 = true;
     this.display3 = false;
     this.display4 = false;
+    this.display5 = false;
   }
 
   onPress3() {
@@ -98,6 +104,7 @@ export class InventoryComponent implements OnInit {
     this.display2 = false;
     this.display3 = false;
     this.display4 = true;
+    this.display5 = false;
     this.displayInfo();
   }
 
@@ -143,6 +150,7 @@ export class InventoryComponent implements OnInit {
     this.display2 = false;
     this.display3 = true;
     this.display4 = false;
+    this.display5 = false;
     this.tbt = this.total + this.sh;
     this.tax = this.total * 0.06;
     this.newtotal = this.tbt + this.tax;
@@ -195,7 +203,12 @@ export class InventoryComponent implements OnInit {
 buildOrder: Order = new Order(0, 0, "", "", false, [], []);
 // Starts a new order with whatever is in the cart and updates the user with said order
 checkoutOrder() {
-  
+  this.display = false;
+  this.display2 = false;
+  this.display3 = false;
+  this.display4 = false;
+  this.display5 = true;
+
   this.buildOrder.itemId = this.orderList;
   this.buildOrder.qtyO = this.qtyO;
   this.buildOrder.totalPrice = this.newtotal;
@@ -216,6 +229,7 @@ email: string = JSON.stringify(localStorage.getItem("email"));
 emailNoQuotes = this.email.replace(/"/g, '');
 // Updates the user with their order
 addOrderToPerson() {
+  this.bo = this.buildOrder;
   for (let index = 0; index < this.orderList.length; index++) {
   this.allCandy.getCandyByName(this.orderList[index].name).subscribe(
     (response) => {
@@ -242,6 +256,10 @@ addOrderToPerson() {
       this.peopleHttp.updatePeople(person).subscribe(
         (updatedPerson) => {
           console.log(updatedPerson);
+          this.per = updatedPerson;
+          if(this.per.address2 != ""){
+            this.sw4 = true;
+          }
         }
       )
     }
