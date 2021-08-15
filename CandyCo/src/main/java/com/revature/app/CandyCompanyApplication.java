@@ -44,11 +44,6 @@ public class CandyCompanyApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CandyCompanyApplication.class, args);
-		
-		String driverPath = "C:\\Users\\stuar\\Desktop\\revature\\chromedriver_win32";
-		System.setProperty("webdriver.chrome.driver", driverPath);
-		
-		WebDriver driver = new ChromeDriver();
 	}
 
 	@Bean
