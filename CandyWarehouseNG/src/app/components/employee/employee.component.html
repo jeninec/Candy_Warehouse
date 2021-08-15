@@ -2,44 +2,46 @@
     <h1>Employee Page</h1>
 </div>
 
-<h2>View Orders</h2>
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Total Price</th>
-        <th scope="col">Date Ordered</th>
-        <th scope="col">Shipping Type</th>
-        <th scope="col">Shipped</th>
-        <th scope="col">Items</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let order of OrdersList;let i=index;">
-        <td>{{order.id}}</td>
-        <td>{{formatter.format(order.totalPrice)}}</td>
-        <td>{{order.dateOrdered}}</td>      
-        <td>{{order.shippingType}}</td>
-        <td>{{order.shipped}}</td>
-        <td>{{order.itemId.length}}</td>
-        <td>
-            <ul>
-                <li>
-                    <span >Show Items</span>
-                    <ul *ngFor="let item of order.itemId;let i=index;">
-                      <li id ="itemNum" style="background-color:gold;">item number {{i+1}}</li>
-                      <li>category: {{item.catagory}}</li>
-                      <!-- <li>description: {{item.description}}</li> -->
-                      <li>name: {{item.name}}</li>
-                      <li>qty :{{item.qty}}</li>
-                      <li>qtyOrdered :{{order.qtyO[i]}}</li>
-                   </ul>
-                </li>
-            </ul>
-        </td>
-        <th><button (click)="updateOrder(OrdersList[i])">Complete Order</button></th>
-    </tr>
-    </tbody>
-</table>
- 
+
+<h2 id="orderTitle">View Orders</h2>
+<div class="card">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Date Ordered</th>
+            <th scope="col">Shipping Type</th>
+            <th scope="col">Shipped</th>
+            <th scope="col">Items</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let order of OrdersList;let i=index;">
+            <td>{{order.id}}</td>
+            <td>{{formatter.format(order.totalPrice)}}</td>
+            <td>{{order.dateOrdered}}</td>      
+            <td>{{order.shippingType}}</td>
+            <td>{{order.shipped}}</td>
+            <td>{{order.itemId.length}}</td>
+            <td>
+                <ul>
+                    <li>
+                        <span >Show Items</span>
+                        <ul *ngFor="let item of order.itemId;let i=index;">
+                        <li id ="itemNum" style="background-color:gold;">item number {{i+1}}</li>
+                        <li>category: {{item.catagory}}</li>
+                        <!-- <li>description: {{item.description}}</li> -->
+                        <li>name: {{item.name}}</li>
+                        <li>qty :{{item.qty}}</li>
+                        <li>qtyOrdered :{{order.qtyO[i]}}</li>
+                    </ul>
+                    </li>
+                </ul>
+            </td>
+            <th><button class="btn-secondary" (click)="updateOrder(OrdersList[i])">Complete Order</button></th>
+        </tr>
+        </tbody>
+    </table>
+ </div>
 

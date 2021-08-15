@@ -1,34 +1,28 @@
 .userInformation{
     width: 50%;
-    border: 1px solid black;
-    padding: 1em;
+    padding: 0.5em;
+    margin: auto;
+}
+
+#userManipulation{
+    margin: 1em 15em;
+    background-color: slateblue;
+    color: white;
+}
+
+#create {
     margin: 1em;
-    border-radius: 16px;
 }
 
-button {
-    color: #444444;
-    background: lightgreen;
-    border: 1px #DADADA solid;
-    padding: 5px 10px;
-    border-radius: 2px;
-    font-weight: bold;
-    font-size: 9pt;
-    outline: none;
+#regTitle{
+    color: darkslateblue;
+    margin: 0.5em;
+    text-align: center;
 }
 
-button:hover {
-    border: 1px #C6C6C6 solid;
-    box-shadow: 1px 1px 1px #EAEAEA;
-    color: #333333;
-    background: rgb(4, 179, 4);
-}
-
-.page-header {
-    padding: 10px;
-    color: rgb(0, 0, 0);
-}
-.userManipulation{
-    margin-left: 1em;
-    margin-bottom: 1em;
-}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(192, 192, 192, 0.8);
+    text-align: center;
+    margin: 2em 12em;
+  }

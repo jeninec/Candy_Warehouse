@@ -16,12 +16,12 @@ fieldset {
       text-decoration: none;
       padding: 5px;
       margin-right: 1em;
-      background-color: black;
+      background-color: darkslateblue;
       color: white;
   }
   
   a:hover{
-      color: cyan;
+      color: violet;
   }
   
   fieldset div{
@@ -38,11 +38,18 @@ fieldset {
   }
   
   #navBar{
-      background-color: black;
+      background-color: darkslateblue;
       padding: 10px;
       width:100%;
   }
 
   #logo{
-    width: 10%;
+    width: 11%;
+    margin: 0.25em;
+  }
+
+  #loginLink {
+    position: absolute;
+    top: 1.6em;
+    right: 2em;
   }

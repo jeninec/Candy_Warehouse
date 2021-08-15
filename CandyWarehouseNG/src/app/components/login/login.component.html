@@ -3,7 +3,7 @@
 <div id="loginInput" class="d-grid gap-3 col-6 mx-auto text-center">
     
     <div class="page-header">
-        <h1>Login</h1>
+        <h1 id="logTitle">Login</h1>
     </div>
 
     <div class="form-floating mb-3">
@@ -15,9 +15,9 @@
         <label for="floatingPassword">Password</label>
     </div>
     <a routerLink="/register">No account? Make one today!</a>
-    <button (click)="login()" id="loginButton" class="btn-light btn-lg">Log in</button>
-    <button (click)="logout()" id="logoutButton" class="btn-light btn-lg">Log out</button>
+    <button (click)="login()" id="loginButton" class="btn-primary btn-lg">Log in</button>
+    <button (click)="logout()" id="logoutButton" class="btn-dark btn-lg">Log out</button>
     <br>
-    <label id="loginResult" style="color: red">{{responseMessage}}</label>
+    <label id="loginResult" style="color: black">{{responseMessage}}</label>
 
 </div>

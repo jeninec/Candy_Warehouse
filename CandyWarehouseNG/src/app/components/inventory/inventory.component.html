@@ -81,7 +81,7 @@
 </div>
 <hr>
 <div class="container">
-            <div id="inventory" class="table table-info table-bordered" id="center">
+            <div id="inventory" class="table table-bordered" id="center">
                 <h2 style="padding: 10px;" *ngIf="orderList.length > 0" class="center">Your Shopping Cart Contains:</h2>
                 <h2 style="padding: 10px;" *ngIf="orderList.length == 0" class="center">Your Shopping Cart Is Empty</h2>
                 <table style="width: 100%;" *ngIf="orderList.length > 0" class="center">
@@ -208,14 +208,14 @@
     <button type="button" class="btn btn-warning" (click) = "checkoutOrder()">place your order</button>
 <br><br>
 
-    <h3>Order Summery</h3>
+    <h3>Order Summary</h3>
     <span>Items: {{formatter.format(total)}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <span>Shipping and handling: {{formatter.format(sh)}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <span>Total before tax: {{formatter.format(tbt)}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <span>Estimated tax to be collected: {{formatter.format(tax)}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <h4>Order total: {{formatter.format(newtotal)}}</h4>
 
-</div>
+</div><br><br>
 
 </div>
 
