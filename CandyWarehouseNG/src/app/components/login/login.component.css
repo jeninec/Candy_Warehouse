@@ -10,7 +10,7 @@
     margin-bottom: 1em;
 }
 
-#loginButton{
+/* #loginButton{
     color: #444444;
     background: #a8fda8;
     border: 1px #DADADA solid;
@@ -19,7 +19,7 @@
     font-weight: bold;
     font-size: 9pt;
     outline: none;
-}
+} */
 
 #loginButton:hover{
     border: 1px #C6C6C6 solid;
@@ -28,7 +28,7 @@
     background: #5afa5ad7;
 }
 
-#logoutButton{
+/* #logoutButton{
     color: #444444;
     background: lightgray;
     border: 1px #DADADA solid;
@@ -37,11 +37,17 @@
     font-weight: bold;
     font-size: 9pt;
     outline: none;
-}
+} */
 
 #logoutButton:hover{
     border: 1px #C6C6C6 solid;
     box-shadow: 1px 1px 1px #EAEAEA;
     color: #333333;
     background: gray;
+}
+
+#logTitle{
+    color: darkslateblue;
+    margin: 0.5em;
+    text-align: center;
 }
