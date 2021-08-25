@@ -52,7 +52,7 @@ To-do list:
 ## Contributors
 
 This project was created by:
-Stuart Kruze(team lead), Tony Bahmer, Ahmed Elhewazy, Jenine Clay, Sean Guo
+Tony Bahmer, Jenine Clay,  Ahmed Elhewazy, Sean Guo, Stuart Kruze
 
 ## License
 
