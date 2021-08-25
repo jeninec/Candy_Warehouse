@@ -11,7 +11,7 @@ export class HttpAllCandyService {
 
   constructor(private http : HttpClient) { }
 
-getAllCandy() :Observable<Item[]>{
-  return this.http.get<Item[]>('http://localhost:');
-}
+  getAllCandy() :Observable<Item[]>{
+    return this.http.get<Item[]>('http://localhost:8080/items');
+  }
 }

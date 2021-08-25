@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { People } from './../models/People';
+
 
 @Injectable({
   providedIn: 'root'
@@ -6,4 +7,5 @@ import { Injectable } from '@angular/core';
 export class HttpEmployeeService {
 
   constructor() { }
+
 }
