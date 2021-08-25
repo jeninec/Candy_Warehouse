@@ -1,1 +1,262 @@
-<p>inventory works!</p>
+<div *ngIf="display2">
+    <hr>
+    <div id="cont">
+    <div  (click)= "onPress2()" id="backdiv">
+    <img src="" id="back">
+    <a class="aa"></a>
+    </div>
+    <div (click)= "compute()" id="checkout">
+    <img src="../../../assets/images/cart.png" id="cart">
+    <a class="aa">   view cart</a>
+    </div>
+    <div id="order2">
+        <h3>Order now</h3>
+    </div>
+</div>
+<hr>
+<div class="grid-container">
+    <div class="grid" (click) = "onPress('chocolate')"><h2>chocolate</h2><img src="../../../assets/images/twix.jpeg" class="im"></div>
+    <div class="grid" (click) = "onPress('gummies')"><h2>gummies</h2><img src="../../../assets/images/gummy_bears.jpeg" class="im"></div>
+    <div class="grid" (click) = "onPress('hard candies')"><h2>hard candies</h2><img src="../../../assets/images/jolly_ranchers.jpeg" class="im"></div>
+    <div class="grid" (click) = "onPress('lollipops')"><h2>lollipops</h2><img src="../../../assets/images/blow_pops.jpeg" class="im"></div>
+    <div class="grid" (click) = "onPress('licorice')"><h2>licorice</h2><img src="../../../assets/images/twizzlers.jpeg" class="im"></div>
+    <div class="grid" (click) = "onPress('bubble gum')"><h2>bubble gum</h2><img src="../../../assets/images/dbgum.jpeg" class="im"></div>
+    </div>
+</div>
+    
+<div *ngIf="display">
+    
+    <hr>
+    <div id="cont">
+    <div  (click)= "onPress2()" id="backdiv">
+    <img src="../../../assets/images/clipart4237996.png" id="back">
+    <a class="aa">  back to categories</a>
+    </div>
+    <div (click)= "compute()" id="checkout">
+    <img src="../../../assets/images/cart.png" id="cart">
+    <a class="aa">   view cart</a>
+    </div>
+    <div id="order">
+        <h3>Order now</h3>
+    </div>
+</div>
+    <hr>
+    <div class="grid-container">
+        <div *ngFor="let item2 of itemList2; let i = index" [attr.data-index]="i" class="grid">
+            <h2>{{item2.name}}</h2>
+            <img src={{item2.imgSrc}} class="im">
+            <div class="desdiv">
+            <p class="des">{{itemList2[i].description}}</p>
+            </div>
+            <input type="number" [(ngModel)]="value[i]" class="input" min="0">
+            <button *ngIf="value[i]>0" (click)="submitItem(itemList2[i].name, i, true)" class="btn2">Add Item(s)</button>
+            <p></p>
+            <p *ngIf="show[i]">Item(s) Added to Cart</p>
+
+        </div>
+    </div>
+
+
+</div>  
+
+
+<div *ngIf="display3">
+<hr>
+<div id="cont">
+    <div (click)= "onPress2()" id="backdiv">
+    <img src="../../../assets/images/clipart4237996.png" id="back">
+    <a class="aa">  back to shopping</a>
+    </div>
+    <div *ngIf="sw" [routerLink]="['/login']" id="checkout2">
+        <img src="../../../assets/images/checkout.jpg" id="cart2">
+        <a class="aa">   checkout</a>
+        </div>
+        <div *ngIf="sw2" (click)= "onPress3()" id="checkout2">
+            <img src="../../../assets/images/checkout.jpg" id="cart2">
+            <a class="aa">   checkout</a>
+            </div>
+        <div id="yourcart">
+            <h3>Your Cart</h3>
+        </div>
+</div>
+<hr>
+<div class="container">
+            <div id="inventory" class="table table-bordered" id="center">
+                <h2 style="padding: 10px;" *ngIf="orderList.length > 0" class="center">Your Shopping Cart Contains:</h2>
+                <h2 style="padding: 10px;" *ngIf="orderList.length == 0" class="center">Your Shopping Cart Is Empty</h2>
+                <table style="width: 100%;" *ngIf="orderList.length > 0" class="center">
+                    <tr>
+                        <th>Candy Name</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Price Each</th>
+                        <th>Items Price</th>
+                        <th>Delete Item(s)</th>
+                    </tr>
+                    <tr *ngFor="let item of orderList; let i = index">
+                        <td>{{item.name}}</td>
+                        <td>{{item.catagory}}</td>
+                        <td>{{qtyO[i]}}</td>
+                        <td>{{formatter.format(item.price)}}</td>
+                        <td>{{formatter.format(itemTotals[i])}}</td>
+                        <td><img src="../../../assets/images/delete.png" class="delete" (click) = "deleteItem(i)"></td> 
+                    </tr>
+                </table>
+                <h2 style="padding: 10px;" *ngIf="orderList.length > 0" class="center">Your Total Is: {{formatter.format(total)}}</h2>
+            </div>
+       
+
+        </div>
+    </div>
+
+<div *ngIf="display4">
+    <hr>
+    <div id="cont">
+        <div (click)= "compute()" id="backdiv">
+        <img src="../../../assets/images/clipart4237996.png" id="back">
+        <a class="aa">  back to cart</a>
+        </div>
+        <div id="checkout2">
+            <img src="" id="cart2">
+            <a class="aa"></a>
+            </div>
+
+            <div id="yourcart">
+                <h3>Check Out</h3>
+            </div>
+    </div>
+    <hr>
+    <div id="contstuff">
+        <div id="shippingA">
+            <h3>Shipping Address</h3>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">First Name: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.firstname">
+                <span class="input-group-text">Last Name: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.lastname">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Address1: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.address1">
+                <span class="input-group-text">Address2: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.address2">
+            </div>
+            <div class="input-group mb-3">    
+                <span class="input-group-text" id="basic-addon1">City: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.city">
+                <span class="input-group-text">State: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.state">
+                <span class="input-group-text">Zip: </span>
+                <input type="text" class="form-control" [(ngModel)]="user.zip">
+            </div>
+        </div>
+
+        <div id="billingA">
+            <h3 id="sa">Billing Address</h3>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">First Name: </span>
+                <input type="text" class="form-control" [ngModel]="user.firstname">
+                <span class="input-group-text">Last Name: </span>
+                <input type="text" class="form-control" [ngModel]="user.lastname">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Address1: </span>
+                <input type="text" class="form-control" [ngModel]="user.address1">
+                <span class="input-group-text">Address2: </span>
+                <input type="text" class="form-control" [ngModel]="user.address2">
+            </div>
+            <div class="input-group mb-3">    
+                <span class="input-group-text" id="basic-addon1">City: </span>
+                <input type="text" class="form-control" [ngModel]="user.city">
+                <span class="input-group-text">State: </span>
+                <input type="text" class="form-control" [ngModel]="user.state">
+                <span class="input-group-text">Zip: </span>
+                <input type="text" class="form-control" [ngModel]="user.zip">
+            </div>
+        </div>
+        <div id="pay-bill">
+            <h3>Payment Method</h3>
+            <label id="ct">Card Type:</label>
+            <select clrSelect id="card_type">
+                <option value="MasterCard">MasterCard</option>
+                <option value="Visa">Visa</option>
+                <option value="Discover">Discover</option>
+                <option value="American Express">American Express</option>
+            </select>
+            <span id="cn">Card Number:</span>
+            <input type="text">
+            <br><br>
+            <span id="cvv">CVV:</span>
+            <input type="text" id="cv">
+            <br><br>
+            <span id="ex">Expiration Date:</span>
+            <input type="text" id="exi">
+        </div>
+
+        <div id="delivery">
+            <h3>Delivery</h3>
+            <label id="ct">Choose a delivery option:</label>
+            <select clrSelect id="card_type" name="options" [(ngModel)]="options">
+                <option value="UPS">UPS</option>
+                <option value="FedEx">FedEx</option>
+                <option value="USPS">USPS</option>
+            </select>
+            <br><br><br><br>
+        </div>
+    </div>
+
+<div id="place">
+    <button type="button" class="btn btn-warning" (click) = "checkoutOrder()">place your order</button>
+<br><br>
+
+    <h3>Order Summary</h3>
+    <span>Items: {{formatter.format(total)}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span>Shipping and handling: {{formatter.format(sh)}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span>Total before tax: {{formatter.format(tbt)}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span>Estimated tax to be collected: {{formatter.format(tax)}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <h4>Order total: {{formatter.format(newtotal)}}</h4>
+
+</div><br><br>
+
+</div>
+
+<div *ngIf="display5">
+<div id = "receipt">
+    <br>    
+<h3>Your Receipt</h3>
+<p>Order Number: {{bo.id}}</p>
+<p>Order Date: {{bo.dateOrdered}}</p>
+<h4>Shipping Address</h4> 
+<p>{{per.firstname}} {{per.lastname}}</p>
+<p>{{per.address1}}</p>
+<p *ngIf = "sw4">{{per.address2}}</p> 
+<p>{{per.city}}, {{per.state}} {{per.zip}}</p> 
+
+<div id="inventory" class="table table-info table-bordered" id="center">
+    <h2 style="padding: 10px;" *ngIf="orderList.length > 0" class="center">Items Ordered</h2>
+    <table style="width: 100%;" *ngIf="orderList.length > 0" class="center">
+        <tr>
+            <th>Candy Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Price Each</th>
+            <th>Items Price</th>
+        </tr>
+        <tr *ngFor="let item of orderList; let i = index">
+            <td>{{item.name}}</td>
+            <td>{{item.catagory}}</td>
+            <td>{{qtyO[i]}}</td>
+            <td>{{formatter.format(item.price)}}</td>
+            <td>{{formatter.format(itemTotals[i])}}</td> 
+        </tr>
+    </table>
+    <h2 style="padding: 10px;" *ngIf="orderList.length > 0" class="center">Total: {{formatter.format(total)}}</h2>
+</div>     
+    
+</div>
+
+<p id="final">We will let you know by email when your order has been shipped</p>
+
+</div>
+
+

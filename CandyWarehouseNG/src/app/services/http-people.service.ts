@@ -20,6 +20,18 @@ export class HttpPeopleService {
     return this.http.get<People>('http://localhost:8080/people/' + id);
   }
 
+  getPersonByEmail(email: string): Observable<People>{
+    return this.http.get<People>('http://localhost:8080/people/search-email?email=' + email);
+  }
+
+  getPersonByName(fname: string, lname: string): Observable<People>{
+    return this.http.get<People>('http://localhost:8080/people/search-name?fname=' + fname + '&lname=' + lname);
+  }
+
+  getAllEmployees(): Observable<People[]>{
+    return this.http.get<People[]>('http://localhost:8080/people/search-title?title=employee');
+  }
+
   updatePeople(people: People): Observable<People> {
     return this.http.put<People>('http://localhost:8080/people/' + people.id, people, { headers: this.postHeaders });
   }
@@ -27,4 +39,9 @@ export class HttpPeopleService {
   deletePeople(id: number): Observable<boolean>{
     return this.http.delete<boolean>('http://localhost:8080/people/' + id);
   }
+
+  addPeople(user: any): Observable<People> {
+    return this.http.post<People>('http://localhost:8080/people/', user, { headers: this.postHeaders });
+  }
+
 }

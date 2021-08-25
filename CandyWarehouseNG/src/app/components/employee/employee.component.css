@@ -1,0 +1,23 @@
+h1 {
+    text-align: center;
+
+}
+.itemNum {
+color: crimson;
+}
+
+.page-header {
+    padding: 10px;
+    text-align: center;
+    background-color: slateblue;
+    color: rgb(255, 255, 255);
+    margin-bottom: 1em;
+}
+
+.card {
+    margin: 0.8em 1em 1em;
+}
+
+#orderTitle {
+    margin: 1em;
+}

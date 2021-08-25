@@ -18,18 +18,31 @@ categories: caramels, chocolate, gummies, hard candies, lollipops, and licorice
 
 "gummy worms", "gummies", 1.80, 40, "small, fruit gum candies shaped in the form of a worm", "../../../assets/images/gummy_worms.jpeg"
 
+"sour gummy worms", "gummies", 1.90, 35, "sour, fruit gum candies shaped in the form of a worm", "../../../assets/images/sour_worms.jpeg"
+
+"bazooka", "bubble gum", 0.15, 100, "hard chewy bubble gum", "../../../assets/images/bazooka.jpeg"
+
+"dubble bubble", "bubble gum", 0.20, 200, "hard chewy bubble gum", "../../../assets/images/dubble_bubble.jpeg"
+
+"bubble yum", "bubble gum", 0.30, 90, "soft chewy bubble gum", "../../../assets/images/bubble_yum.jpeg"
+
 "candy canes", "hard candies", 1.00, 20, "cane-shaped stick candy often associated with Christmas", "../../../assets/images/candy_canes.jpeg"
 
 "jolly ranchers", "hard candies", 1.50, 40, "sweet hard candies in an assortment of bold fruit flavors", "../../../assets/images/jolly_ranchers.jpeg"
 
 "life savers", "hard candies", 1.05, 10, "ring-shaped hard candy", "../../../assets/images/life_savers.jpeg"
 
-"chupa chups", "lollipops", 0.85, 10, "hard fruity lollipop", "../../../assets/images/chupa_chups.jpeg"
+"dum dums", "lollipops", 0.45, 10, "hard fruity lollipop", "../../../assets/images/dum_dums.jpeg"
+
+"chupa chups", "lollipops", 0.85, 10, "spanish hard fruity lollipop", "../../../assets/images/chupa_chups.jpeg"
 
 "blow pops", "lollipops", 0.95, 15, "delicious fruit flavored hard candy shell with a soft bubble gum center", "../../../assets/images/blow_pops.jpeg"
 
+"red vines", "licorice", 1.65, 15, "thin strawberry licorice", "../../../assets/images/red_vines.jpeg"
+
 "twizzler", "licorice", 1.65, 15, "twisted strawberry licorice", "../../../assets/images/twizzlers.jpeg"
 
+"black licorice", "licorice", 1.65, 15, "regular black licorice", "../../../assets/images/black_licorice.jpeg"
 
 PEOPLE 
 first_name, last_name, password, email, address1, address2, city, state, zip, phone, title, orderid

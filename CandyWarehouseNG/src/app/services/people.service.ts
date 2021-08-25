@@ -8,5 +8,6 @@ export class PeopleService {
 
   constructor() { }
 
-  people: People = new People(0, "", "", "", "", "", "", "" , "", "", "", "", [] );
+  people: People = new People(0, "", "", "", "", "", "", "" , "", "", "", "", []);
+
 }

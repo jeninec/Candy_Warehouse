@@ -1,0 +1,62 @@
+<div class="page-header">
+    <h1 id="regTitle">Registration Page</h1>
+</div>
+
+<div class="card">
+    <div class="userInformation">
+        <h3 id="create">Create Your New Account</h3>
+        <div class="mb-3">
+            <div class="form-floating mb-3">
+                <input [(ngModel)]="firstName" type="text" class="form-control" id="floatingInput" placeholder="First Name">
+                <label for="floatingInput">First Name</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input [(ngModel)]="lastName" type="text" class="form-control" id="floatingInput" placeholder="Last Name">
+                <label for="floatingInput">Last Name</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-floating mb-3">
+                <input [(ngModel)]="email" type="text" type="email" class="form-control" id="floatingInput" placeholder="Email">
+                <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input [(ngModel)]="password" type="text" type="password" class="form-control" id="floatingInput" placeholder="Password">
+                <label for="floatingInput">Password</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-floating mb-3">
+                <input [(ngModel)]="address1" type="text"class="form-control" id="floatingInput" placeholder="Address 1">
+                <label for="floatingInput">Address 1</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input [(ngModel)]="address2" type="text"class="form-control" id="floatingInput" placeholder="Address 2">
+                <label for="floatingInput">Address 2</label>
+            </div>
+        </div>
+        <div class="mb-4">
+            <div class="form-floating mb-3">
+                <input [(ngModel)]="city" type="text"class="form-control" id="floatingInput" placeholder="City">
+                <label for="floatingInput">City</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input [(ngModel)]="state" type="text"class="form-control" id="floatingInput" placeholder="State">
+                <label for="floatingInput">State</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input [(ngModel)]="zip" type="text"class="form-control" id="floatingInput" placeholder="Address 2">
+                <label for="floatingInput">Zip Code</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-floating mb-3">
+                <input [(ngModel)]="phone" type="text" class="form-control" id="floatingInput" placeholder="Address 2">
+                <label for="floatingInput">Phone</label>
+            </div>
+        </div>
+    </div>
+
+    <button id="userManipulation" class="btn-lg" (click)="createAccount()">Create Account</button>
+
+</div>  

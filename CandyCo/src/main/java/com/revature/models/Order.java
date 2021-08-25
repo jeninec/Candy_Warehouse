@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -26,6 +27,8 @@ public class Order {
 	private String shippingType;
 	@Column(name="shipped")
 	private boolean shipped;
+	@Column(name="qty_O")
+	private int[] qtyO;
 	
 	@OneToMany
 	@JoinColumn(name="itemid")
@@ -35,7 +38,7 @@ public class Order {
 		super();
 	}
 
-	public Order(int id, double totalPrice, String dateOrdered, String shippingType, boolean shipped,
+	public Order(int id, double totalPrice, String dateOrdered, String shippingType, boolean shipped, int[] qtyO,
 			List<Item> itemId) {
 		super();
 		this.id = id;
@@ -43,15 +46,18 @@ public class Order {
 		this.dateOrdered = dateOrdered;
 		this.shippingType = shippingType;
 		this.shipped = shipped;
+		this.qtyO = qtyO;
 		this.itemId = itemId;
 	}
 
-	public Order(double totalPrice, String dateOrdered, String shippingType, boolean shipped, List<Item> itemId) {
+	public Order(double totalPrice, String dateOrdered, String shippingType, boolean shipped, int[] qtyO,
+			List<Item> itemId) {
 		super();
 		this.totalPrice = totalPrice;
 		this.dateOrdered = dateOrdered;
 		this.shippingType = shippingType;
 		this.shipped = shipped;
+		this.qtyO = qtyO;
 		this.itemId = itemId;
 	}
 
@@ -95,6 +101,14 @@ public class Order {
 		this.shipped = shipped;
 	}
 
+	public int[] getQtyO() {
+		return qtyO;
+	}
+
+	public void setQtyO(int[] qtyO) {
+		this.qtyO = qtyO;
+	}
+
 	public List<Item> getItemId() {
 		return itemId;
 	}
@@ -106,7 +120,8 @@ public class Order {
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", totalPrice=" + totalPrice + ", dateOrdered=" + dateOrdered + ", shippingType="
-				+ shippingType + ", shipped=" + shipped + ", itemId=" + itemId + "]";
+				+ shippingType + ", shipped=" + shipped + ", qtyO=" + Arrays.toString(qtyO) + ", itemId=" + itemId
+				+ "]";
 	}
 
 

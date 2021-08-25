@@ -2,8 +2,7 @@ package com.revature.repositories;
 
 import org.springframework.stereotype.Repository;
 
-
-
+import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 import com.revature.models.Item;
@@ -12,6 +11,7 @@ import com.revature.models.Item;
 public interface ItemRepo extends CrudRepository<Item, Integer> {
 
 	Item findByName(String name);
+	List<Item> findByCatagory(String catagory);
 
 
 }

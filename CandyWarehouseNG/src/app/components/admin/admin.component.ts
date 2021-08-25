@@ -1,6 +1,7 @@
 import { HttpPeopleService } from './../../services/http-people.service';
 import { People } from './../../models/People';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -9,14 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private peopleHttp: HttpPeopleService) { }
+  constructor(private router: Router, private peopleHttp: HttpPeopleService) { }
 
   ngOnInit(): void {
-    this.displayAllUsers();
+    if(localStorage.getItem("title") == "admin"){
+      this.displayAllUsers();
+    } else{
+      this.router.navigateByUrl("/home");
+    }
   }
 
   userList: People[] = [];
-  nameInput: string = "";
+  fnameInput: string = "";
+  lnameInput: string = "";
   emailInput: string = "";
 
   fakePeopleList: Array<any> = [
@@ -37,12 +43,32 @@ export class AdminComponent implements OnInit {
     );
   }
 
-  searchByName(){
-    alert(this.nameInput);
+  searchByName(){    
+    if(this.fnameInput == ""){
+      this.displayAllUsers();
+    } else {
+      this.peopleHttp.getPersonByName(this.fnameInput, this.lnameInput).subscribe(
+        (response) => {
+          console.log(response);
+          this.userList = [];
+          this.userList.push(response);
+        }
+      );
+    }
   }
 
   searchByEmail(){
-    alert(this.emailInput);
+    if(this.emailInput == ""){
+      this.displayAllUsers();
+    } else {
+      this.peopleHttp.getPersonByEmail(this.emailInput).subscribe(
+        (response) => {
+          console.log(response);
+          this.userList = [];
+          this.userList.push(response);
+        }
+      );
+    }
   }
   
 }

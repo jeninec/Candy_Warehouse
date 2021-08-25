@@ -1,0 +1,50 @@
+.viewButtons{
+    margin-left: 1em;
+}
+
+.page-header{
+    margin-left:1em;
+}
+
+.card {
+    width: 95%;
+    margin: 1em;
+    border-width: 2px;
+    border-color: darkgray;
+    padding: 1em;
+}
+
+#editButton {
+    margin: 0em 0.5em 0.5em 0.5em;
+}
+
+.fields {
+    width: 50%;
+    margin: 5px 5px;
+    padding: 1em;
+}
+
+#userTitle{
+    color: darkslateblue;
+    margin: 0.5em;
+    text-align: center;
+}
+
+button {
+    color: #444444;
+    background: lightgray;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+}
+
+button:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: gainsboro;
+}
+

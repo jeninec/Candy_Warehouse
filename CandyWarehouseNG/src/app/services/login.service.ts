@@ -13,7 +13,7 @@ export class LoginService {
   getUser(param: string): Observable<People> {
     console.log(param);
 
-    return this.http.get<People>(`http://localhost:8080/people/search-email?email=${param}`, {responseType: "json"} );
+    return this.http.get<People>(`http://localhost:8080/people/search-email?email=` + param, {responseType: "json"} );
   }
 }
 

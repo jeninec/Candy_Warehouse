@@ -12,13 +12,59 @@
     margin: 1em;
 }
 
+.page-header {
+    padding: 10px;
+    text-align: center;
+    background-color: #ad1919;
+    color: rgb(255, 255, 255);
+    margin-bottom: 1em;
+}
+
 .userInformation{
     width: 50%;
     border: 1px solid black;
     padding: 1em;
-    margin: 1em;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 .userManipulation{
     margin: 1em;
+}
+
+#updateButton {
+    color: #444444;
+    background: lightgray;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+}
+
+#updateButton:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: gainsboro;
+}
+
+#deleteButton {
+    color: #ffffff;
+    background: orangered;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+}
+
+#deleteButton:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #ffffff;
+    background: red;
 }

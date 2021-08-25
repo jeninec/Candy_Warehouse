@@ -1,0 +1,192 @@
+
+#inventory{
+  text-align: justify;
+  padding-right: 25%;
+}
+
+#cart{
+  text-align: justify;
+  padding-left: 25%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #ffffff;
+  padding: 10px;
+}
+.grid {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(192, 192, 192, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  margin: 0.5em;
+  border-radius: 16px;
+  box-shadow: 1px 1px 1px #EAEAEA;
+}
+#back {
+  width: 50px;
+  padding-left: 20px;
+}
+
+.im{
+width: 200px;
+}
+
+.btn2{
+font-size: small;
+text-align: center;
+}
+
+.input{
+width: 20%;
+display: block;
+margin-right: auto;
+margin-left: auto;
+}
+
+#checkout{
+float: right;
+padding-right: 20px;
+}
+
+#backdiv{
+float: left;
+}
+
+#order{
+  margin:0 auto;
+  padding-right: 200px;
+}
+
+#order2{
+  margin:0 auto;
+  padding-left: 150px;
+}
+
+#yourcart{
+  margin:0 auto;
+  padding-right: 200px;
+}
+
+#cont{
+width: 100%;
+text-align: center;
+}
+
+#cart{
+width: 70px;
+}
+
+a:hover{
+color: blueviolet;
+text-decoration: underline;
+}
+
+.aa{
+text-decoration: none;
+color: black;
+}
+
+#cart2{
+  width: 40px;
+}
+
+#checkout2{
+  position: relative;
+  display: inline;
+  float: right;
+  padding-right: 20px; 
+}
+
+.delete{
+  width: 40px;
+}
+
+.center{
+text-align: center;
+}
+
+#center{
+  text-align: center;
+}
+
+.container{
+  text-align: center;
+  background-color: lemonchiffon;
+}
+
+.des{
+  font-size: small;
+}
+
+.desdiv{
+  height: 15%;
+}
+
+
+#shippingA{
+  padding: 10px;
+  
+  float: left;
+  width: 50%;
+}
+
+#billingA{
+  padding: 10px;
+  
+  float: right;
+  width: 50%;
+}
+
+#pay-bill{
+  padding: 10px;
+  
+  float: left;
+  width: 50%;
+}
+
+#delivery{
+  padding: 10px;
+  
+  float: right;
+  width: 50%;
+}
+
+#place{
+  text-align: center;
+  clear: both;
+}
+
+#ct{
+  padding-right: 10px;
+}
+
+#cn{
+  padding: 10px;
+}
+
+#cv{
+  width: 10%;
+}
+
+#cvv{
+  padding: 10px;
+}
+
+#ex{
+  padding: 10px;
+}
+
+#receipt{
+  text-align: center;
+  width: 100%;
+}
+#final{
+  text-align: center;
+}
+
+#contstuff {
+  margin: 1em 4em;
+}

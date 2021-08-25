@@ -7,10 +7,9 @@ export class Item{
 	qty: number;
 	description: string;
 	imgSrc: string;
-    qtyOrdered: number;
 
     constructor(id: number, name: string, catagory: string, price: number, qty: number,
-        description: string, imgSrc: string, qtyOrdered: number){
+        description: string, imgSrc: string){
 
         this.id = id;
         this.name = name;
@@ -19,7 +18,6 @@ export class Item{
         this.qty = qty;
         this.description = description;
         this.imgSrc = imgSrc;
-        this.qtyOrdered = qtyOrdered;
     }
 
 

@@ -42,6 +42,12 @@ public class ItemController {
 	}
 	
 	@CrossOrigin
+	@GetMapping("items/search-cat")
+	public List<Item> getItemByCat(@RequestParam("catagory") String catagory){
+		return is.getItemByCatagory(catagory);
+	}
+	
+	@CrossOrigin
 	@PostMapping(value = "/items", consumes = "application/json", produces = "application/json")
 	public Item addItem(@RequestBody Item i) {
 		return is.addItem(i);

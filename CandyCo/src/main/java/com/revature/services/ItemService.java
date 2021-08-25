@@ -17,4 +17,6 @@ public interface ItemService {
 	public boolean deleteItem(int id);
 
 	public Item getItem(String name);
+	
+	public List<Item> getItemByCatagory(String catagory);
 }

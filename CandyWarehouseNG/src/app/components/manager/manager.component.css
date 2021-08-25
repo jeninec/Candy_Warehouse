@@ -1,5 +1,25 @@
 .viewButtons{
-    margin-left: 1em;
+    margin-left: 2em;
+}
+
+#orderTable{
+    padding: 1em;
+}
+
+#empTable{
+    padding: 1em;
+}
+
+#itemTable{
+    padding: 1em;
+}
+
+.manager-header {
+    padding: 10px;
+    text-align: center;
+    background-color: slateblue;
+    color: rgb(255, 255, 255);
+    margin-bottom: 1em;
 }
 
 fieldset {
@@ -7,4 +27,45 @@ fieldset {
     border: solid black;
     margin: 5px 5px;
     padding: 1em;
+    border-radius: 16px;
+}
+
+.viewButtons {
+    color: #444444;
+    background: lightgray;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+}
+
+.viewButtons:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: gainsboro;
+}
+
+#submitButton {
+    color: #444444;
+    background: lightgray;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+}
+
+#submitButton:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: gainsboro;
+}
+
+.card {
+    margin: 0.8em 1em 1em;
 }

@@ -16,15 +16,19 @@ export class EditUserComponent implements OnInit {
     , private peopleServ: PeopleService) { }
 
   ngOnInit(): void {
-    let id = this.route.snapshot.paramMap.get('userid');
-    if(id === null){
-      id = "0";
-    }
-    this.peopleHttp.getPeople(id).subscribe(
-      (response) => {
-        this.peopleServ.people = response;
+    if(localStorage.getItem("title") == "admin"){
+      let id = this.route.snapshot.paramMap.get('userid');
+      if(id === null){
+        id = "0";
       }
-    )
+      this.peopleHttp.getPeople(id).subscribe(
+        (response) => {
+          this.peopleServ.people = response;
+        }
+      )
+    } else {
+      this.router.navigateByUrl("/home");
+    }
   }
 
   getPeople() {
@@ -35,7 +39,7 @@ export class EditUserComponent implements OnInit {
     console.log(this.peopleServ.people);
     this.peopleHttp.updatePeople(this.peopleServ.people).subscribe(
       (response) => {
-        alert("User Successfully Updated");
+        console.log("User Successfully Updated");
         this.router.navigateByUrl("/admin");
       }
     );
@@ -45,7 +49,7 @@ export class EditUserComponent implements OnInit {
     console.log(this.peopleServ.people);
     this.peopleHttp.deletePeople(this.peopleServ.people.id).subscribe(
       (response) => {
-        alert("User Successfully Deleted");
+        console.log("User Successfully Deleted");
         this.router.navigateByUrl("/admin");
       }
     );

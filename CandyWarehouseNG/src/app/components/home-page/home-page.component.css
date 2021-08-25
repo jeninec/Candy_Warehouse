@@ -1,0 +1,23 @@
+#wallpaper {
+    margin: auto;
+    width: 100%;
+    border: 2px cyan;
+}
+
+.row {
+    margin: 2em;
+}
+
+.row a {
+    background-color: khaki;
+    border:khaki;
+}
+
+.card-title {
+    color: darkslateblue;
+    margin: 0.8em 0em;
+}
+
+#home-card {
+    background-color: slateblue;
+}
